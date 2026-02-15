@@ -11,6 +11,12 @@ export interface OpponentTurnResult {
   gotv_added: number;
 }
 
+function getCampaignChance(currentTurn: number): number {
+  if (currentTurn <= 6) return 0.5;   // primary — less active
+  if (currentTurn <= 14) return 0.7;  // early — standard
+  return 0.85;                         // mid/final — aggressive
+}
+
 export function processOpponentTurn(
   opponent: OpponentState,
   playerSupport: number,
@@ -48,8 +54,8 @@ export function processOpponentTurn(
 
   cashSpent += adSpend;
 
-  // Campaigning
-  if (rng.chance(0.7)) {
+  // Campaigning — phase-dependent activity level
+  if (rng.chance(getCampaignChance(currentTurn))) {
     const campaignEffect = 0.3 * (1 + opponent.staff_level * 0.1);
     pollEffect += campaignEffect;
     const locations = ['Summerlin', 'Spring Valley', 'Enterprise', 'Henderson'];
@@ -74,14 +80,14 @@ export function processOpponentTurn(
     actions.push(`Lee invested ${formatK(gotvSpend)} in GOTV operations`);
   }
 
-  // Endorsement activity
-  if (rng.chance(0.15) && currentTurn > 5) {
+  // Endorsement activity — reduced chance and effect
+  if (rng.chance(0.10) && currentTurn > 5) {
     const orgs = ['AFL-CIO Nevada', 'Sierra Club', 'Las Vegas Sun', 'Clark County Education Association'];
     const org = rng.pick(orgs.filter((o) => !opponent.endorsements_secured.includes(o)));
     if (org) {
       opponent.endorsements_secured.push(org);
       actions.push(`Lee secured endorsement from ${org}`);
-      pollEffect += 0.3;
+      pollEffect += 0.15;
     }
   }
 
@@ -106,20 +112,25 @@ function determineStrategy(
   margin: number,
   currentTurn: number,
 ): OpponentStrategy {
+  // Early game: always establishment unless significantly behind
+  if (currentTurn <= 10) {
+    return margin < -5 ? 'aggressive' : 'establishment';
+  }
+
   // If leading comfortably, play it safe
   if (margin > 5) return 'establishment';
 
-  // If close, adapt based on phase
+  // If close lead, protect it in late game
   if (margin > 0 && margin <= 5) {
     return currentTurn > 20 ? 'defensive' : 'establishment';
   }
 
-  // If tied or slightly behind
-  if (margin >= -3) {
+  // If tied or slightly behind (-5 to 0)
+  if (margin >= -5) {
     return currentTurn > 15 ? 'aggressive' : 'establishment';
   }
 
-  // If significantly behind, go aggressive
+  // If significantly behind (< -5), go aggressive
   return 'aggressive';
 }
 

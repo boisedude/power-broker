@@ -1,6 +1,7 @@
-import type { PollState, AdCampaign } from '@/types/game.ts';
+import type { PollState, AdCampaign, StaffMember } from '@/types/game.ts';
 import type { AllocatedAction } from '@/types/actions.ts';
 import type { PollChange } from '@/types/engine.ts';
+import { calculateAdEffects } from '@/engine/AdvertisingEngine.ts';
 import { GAME_CONSTANTS } from '@/engine/BalanceConstants.ts';
 import { SeededRandom } from '@/engine/RandomUtils.ts';
 import { clamp } from '@/utils/formatters.ts';
@@ -10,8 +11,7 @@ export function calculatePollChanges(
   actions: AllocatedAction[],
   ads: AdCampaign[],
   momentum: number,
-  hasCommsDirector: boolean,
-  hasDigitalDirector: boolean,
+  staff: StaffMember[],
   rng: SeededRandom,
 ): { newPolls: PollState; changes: PollChange[] } {
   const changes: PollChange[] = [];
@@ -39,45 +39,21 @@ export function calculatePollChanges(
     }
   }
 
-  // Process advertising effects
-  for (const ad of ads) {
-    let effectiveness = getAdReach(ad.medium);
-    if (hasCommsDirector) effectiveness *= (1 + GAME_CONSTANTS.COMMS_DIRECTOR_AD_BONUS);
-    if (hasDigitalDirector && ad.medium === 'digital') {
-      effectiveness *= (1 + GAME_CONSTANTS.DIGITAL_DIRECTOR_TARGETING_BONUS);
+  // Process advertising effects via AdvertisingEngine
+  const adEffects = calculateAdEffects(ads, newDemographics, staff, rng);
+  for (const effect of adEffects) {
+    const demo = newDemographics.find((d) => d.id === effect.demographic);
+    if (!demo) continue;
+    demo.current_support = clamp(demo.current_support + effect.player_change, 0, 100);
+    if (effect.opponent_change !== 0) {
+      demo.opponent_support = clamp(demo.opponent_support + effect.opponent_change, 0, 100);
     }
-
-    for (const demo of newDemographics) {
-      if (ad.target_demographic && ad.target_demographic !== demo.id) continue;
-      const targetMod = ad.target_demographic === demo.id ? 1.5 : 0.6;
-      let change = effectiveness * demo.persuadability * targetMod;
-
-      // Tone modifiers
-      if (ad.tone === 'attack') {
-        change *= 1.5;
-        if (rng.chance(GAME_CONSTANTS.ATTACK_AD_BACKLASH_CHANCE)) {
-          change = GAME_CONSTANTS.ATTACK_AD_BACKLASH_PENALTY;
-          changes.push({
-            demographic: demo.id,
-            player_change: change,
-            opponent_change: 0,
-            reason: 'Attack ad backlash',
-          });
-        }
-      } else if (ad.tone === 'contrast') {
-        change *= 1.2;
-      }
-
-      const noise = rng.nextFloat(-0.2, 0.2);
-      const finalChange = change + noise;
-
-      if (Math.abs(finalChange) > 0.05) {
-        demo.current_support = clamp(demo.current_support + finalChange, 0, 100);
-        if (ad.tone === 'attack' || ad.tone === 'contrast') {
-          demo.opponent_support = clamp(demo.opponent_support - finalChange * 0.5, 0, 100);
-        }
-      }
-    }
+    changes.push({
+      demographic: effect.demographic,
+      player_change: effect.player_change,
+      opponent_change: effect.opponent_change,
+      reason: effect.reason,
+    });
   }
 
   // Momentum effect
@@ -120,13 +96,4 @@ export function calculatePollChanges(
   };
 
   return { newPolls, changes };
-}
-
-function getAdReach(medium: AdCampaign['medium']): number {
-  switch (medium) {
-    case 'tv': return GAME_CONSTANTS.TV_REACH;
-    case 'digital': return GAME_CONSTANTS.DIGITAL_REACH;
-    case 'mailers': return GAME_CONSTANTS.MAILER_REACH;
-    case 'radio': return GAME_CONSTANTS.RADIO_REACH;
-  }
 }

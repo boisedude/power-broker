@@ -99,7 +99,7 @@ export function ElectionNight() {
             <div>
               <div className="flex justify-between items-center mb-1">
                 <div className="flex items-center gap-2">
-                  <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-8 h-8 rounded-full object-cover border-2 border-red-campaign" />
+                  <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-8 h-8 rounded-full object-cover object-[center_25%] border-2 border-red-campaign" />
                   <span className="text-sm font-bold text-red-campaign">Steve Gonzalez (R)</span>
                   {phase === 'called' && playerWon && <Badge variant="success">WINNER</Badge>}
                 </div>

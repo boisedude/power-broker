@@ -1,10 +1,19 @@
 import type { DemographicGroup } from './game.ts';
 import type { ActiveEvent } from './events.ts';
 
+export interface FundraisingDetail {
+  small_donors: number;
+  large_donors: number;
+  pac_money: number;
+  online_income: number;
+  email_list_growth: number;
+}
+
 export interface TurnResult {
   turn: number;
   poll_changes: PollChange[];
   financial_summary: FinancialSummary;
+  fundraising_detail?: FundraisingDetail;
   events_triggered: ActiveEvent[];
   opponent_actions: string[];
   momentum_change: number;

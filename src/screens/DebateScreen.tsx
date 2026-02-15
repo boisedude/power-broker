@@ -34,7 +34,7 @@ export function DebateScreen() {
         <p className="text-sm text-text-secondary mt-1">NV-03 Congressional Debate</p>
         <div className="flex justify-center items-center gap-4 mt-3">
           <div className="flex items-center gap-2">
-            <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-10 h-10 rounded-full object-cover border-2 border-red-campaign" />
+            <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-10 h-10 rounded-full object-cover object-[center_25%] border-2 border-red-campaign" />
             <Badge variant="danger">Steve Gonzalez (R)</Badge>
           </div>
           <span className="text-text-muted font-bold">vs</span>

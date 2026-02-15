@@ -24,15 +24,15 @@ export const DIFFICULTY_CONFIGS: Record<DifficultyLevel, DifficultyConfig> = {
   },
   'lean-away': {
     starting_cash: 150000,
-    player_starting_support: 42,
-    opponent_starting_support: 48,
+    player_starting_support: 43,
+    opponent_starting_support: 47,
     label: 'Lean Away',
     description: 'Uphill battle — trailing from the start',
   },
   'hostile': {
-    starting_cash: 100000,
-    player_starting_support: 38,
-    opponent_starting_support: 50,
+    starting_cash: 125000,
+    player_starting_support: 40,
+    opponent_starting_support: 48,
     label: 'Hostile',
     description: 'Near-impossible — for experts only',
   },
@@ -75,20 +75,20 @@ export const GAME_CONSTANTS = {
   ATTACK_AD_BACKLASH_PENALTY: -1,
 
   // Campaigning
-  CAMPAIGN_BASE_POLL_BOOST: 0.5,
-  CAMPAIGN_DIMINISHING_FACTOR: 0.7,
+  CAMPAIGN_BASE_POLL_BOOST: 1.2,
+  CAMPAIGN_DIMINISHING_FACTOR: 0.85,
 
   // GOTV
-  GOTV_BASE_INVESTMENT: 10000,
-  GOTV_TURNOUT_MULTIPLIER: 0.5,
+  GOTV_BASE_INVESTMENT: 8000,
+  GOTV_TURNOUT_MULTIPLIER: 0.75,
   FIELD_DIRECTOR_GOTV_BONUS: 0.4,
-  GOTV_AVAILABLE_TURN: 21,
+  GOTV_AVAILABLE_TURN: 16,
 
   // Opponent
   OPPONENT_BASE_FUNDRAISING: 45000,
-  OPPONENT_ATTACK_POLL_EFFECT: -1.5,
+  OPPONENT_ATTACK_POLL_EFFECT: -1.0,
   INCUMBENT_NAME_RECOGNITION_BONUS: 0.85,
-  OPPONENT_ADAPTATION_THRESHOLD: -3,
+  OPPONENT_ADAPTATION_THRESHOLD: -5,
 
   // Momentum
   MOMENTUM_MAX: 10,
@@ -97,9 +97,9 @@ export const GAME_CONSTANTS = {
   MOMENTUM_POLL_EFFECT: 0.3,
 
   // Election
-  ELECTION_DAY_VARIANCE: 2,
+  ELECTION_DAY_VARIANCE: 1.5,
   RECOUNT_THRESHOLD: 2,
-  GOTV_FINAL_EFFECT_MAX: 3,
+  GOTV_FINAL_EFFECT_MAX: 4,
 
   // Staff
   STAFF_WEEKLY_COST_MULTIPLIER: 1,

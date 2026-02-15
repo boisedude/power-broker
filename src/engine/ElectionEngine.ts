@@ -28,17 +28,18 @@ export function calculateElectionResult(state: GameState, rng: SeededRandom): El
   const demographicResults: DemographicResult[] = state.polls.demographics.map((demo) => {
     const turnoutNoise = rng.nextFloat(-0.05, 0.05);
     const baseDemoTurnout = baseTurnout + turnoutNoise;
-    
-    // GOTV affects turnout in demographics where player is strong
-    const playerStrong = demo.current_support > demo.opponent_support;
-    const gotvTurnoutEffect = playerStrong ? gotvDifferential * 0.02 : -gotvDifferential * 0.01;
-    
+
+    // GOTV affects turnout proportionally to support ratio
+    const totalSupport = demo.current_support + demo.opponent_support;
+    const playerRatio = totalSupport > 0 ? demo.current_support / totalSupport : 0.5;
+    const gotvTurnoutEffect = gotvDifferential * 0.02 * (playerRatio - 0.5) * 2;
+
     const turnoutPct = clamp(baseDemoTurnout + gotvTurnoutEffect, 0.3, 0.85);
-    
-    // Final support with day-of variance
+
+    // Final support with symmetric day-of variance for both candidates
     const demoVariance = rng.nextFloat(-1.5, 1.5);
     const playerPct = clamp(demo.current_support + dayVariance + demoVariance + gotvDifferential, 0, 100);
-    const opponentPct = clamp(demo.opponent_support - dayVariance * 0.5 - demoVariance * 0.5, 0, 100);
+    const opponentPct = clamp(demo.opponent_support - dayVariance - demoVariance, 0, 100);
 
     return {
       demographic: demo.id,

@@ -23,8 +23,8 @@ describe('createInitialGameState', () => {
 
   it('hostile has less starting cash', () => {
     const state = createInitialGameState('hostile')
-    expect(state.finances.cash_on_hand).toBe(100000)
-    expect(state.polls.player_support).toBe(38)
+    expect(state.finances.cash_on_hand).toBe(125000)
+    expect(state.polls.player_support).toBe(40)
   })
 
   it('demographics have valid support values', () => {

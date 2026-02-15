@@ -19,7 +19,7 @@ export function Polls() {
           <div>
             <div className="flex justify-between items-center text-sm mb-1">
               <div className="flex items-center gap-2">
-                <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-6 h-6 rounded-full object-cover" />
+                <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-6 h-6 rounded-full object-cover object-[center_25%]" />
                 <span className="text-red-campaign font-medium">Steve Gonzalez (R)</span>
               </div>
               <span className="font-bold">{formatPercent(polls.player_support)}</span>

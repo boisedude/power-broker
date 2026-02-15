@@ -3,7 +3,8 @@ import type { TurnResult, Notification } from '@/types/engine.ts';
 import type { AllocatedAction } from '@/types/actions.ts';
 import { calculatePollChanges } from '@/engine/PollingEngine.ts';
 import { calculateMomentum } from '@/engine/MomentumEngine.ts';
-import { applyEndorsementEffects } from '@/engine/EndorsementEngine.ts';
+import { processEndorsements, applyEndorsementEffects } from '@/engine/EndorsementEngine.ts';
+import { calculateFundraising } from '@/engine/FundraisingEngine.ts';
 import { GAME_CONSTANTS, getPhaseForTurn, DIFFICULTY_CONFIGS } from '@/engine/BalanceConstants.ts';
 import { SeededRandom, createSeed } from '@/engine/RandomUtils.ts';
 import { clamp } from '@/utils/formatters.ts';
@@ -114,36 +115,34 @@ export function processTurn(state: GameState, actions: AllocatedAction[]): TurnR
   const notifications: Notification[] = [];
   const opponentActions: string[] = [];
 
-  const hasCommsDirector = state.staff.some((s) => s.role === 'comms-director' && s.hired);
-  const hasDigitalDirector = state.staff.some((s) => s.role === 'digital-director' && s.hired);
-  const hasFinanceDirector = state.staff.some((s) => s.role === 'finance-director' && s.hired);
   // 1. Calculate poll changes from actions and ads
   const { changes: pollChanges } = calculatePollChanges(
     state.polls,
     actions,
     state.ads,
     state.momentum,
-    hasCommsDirector,
-    hasDigitalDirector,
+    state.staff,
     rng,
   );
 
-  // 2. Process fundraising actions
-  let income = state.finances.online_income_rate; // passive income
-  const fundraiseActions = actions.filter((a) => a.type === 'fundraise');
-  for (const action of fundraiseActions) {
-    let amount = GAME_CONSTANTS.FUNDRAISE_BASE_AMOUNT * action.intensity;
-    if (hasFinanceDirector) amount *= (1 + GAME_CONSTANTS.FINANCE_DIRECTOR_BONUS);
-    income += amount;
-  }
+  // 2. Process fundraising via FundraisingEngine
+  const endorsementsSecuredCount = state.endorsements.filter((e) => e.secured).length;
+  const fundraisingResult = calculateFundraising(
+    state.finances,
+    actions,
+    state.staff,
+    state.momentum,
+    state.current_turn,
+    rng,
+    endorsementsSecuredCount,
+  );
+  const income = fundraisingResult.total_raised;
 
   // 3. Calculate expenses
   let expenses = 0;
-  // Staff salaries
   for (const s of state.staff) {
     if (s.hired) expenses += s.cost;
   }
-  // Ad spending
   for (const ad of state.ads) {
     expenses += ad.budget;
   }
@@ -156,25 +155,16 @@ export function processTurn(state: GameState, actions: AllocatedAction[]): TurnR
   }
   expenses += gotvInvestment;
 
-  // 5. Endorsement progress
-  let endorsementGained = false;
-  const seekActions = actions.filter((a) => a.type === 'seek-endorsement');
-  if (seekActions.length > 0) {
-    for (const endorsement of state.endorsements) {
-      if (endorsement.pursued && !endorsement.secured) {
-        endorsement.turns_pursued += 1;
-        if (endorsement.turns_pursued >= endorsement.turns_to_secure) {
-          endorsement.secured = true;
-          endorsementGained = true;
-          applyEndorsementEffects(endorsement, state.polls.demographics);
-          notifications.push({
-            type: 'success',
-            title: 'Endorsement Secured!',
-            message: `${endorsement.name} has endorsed Steve Gonzalez.`,
-          });
-        }
-      }
-    }
+  // 5. Endorsement progress via EndorsementEngine
+  const endorsementResult = processEndorsements(state.endorsements, actions, state.polls);
+  const endorsementGained = endorsementResult.secured.length > 0;
+  for (const endorsement of endorsementResult.secured) {
+    applyEndorsementEffects(endorsement, state.polls.demographics);
+    notifications.push({
+      type: 'success',
+      title: 'Endorsement Secured!',
+      message: `${endorsement.name} has endorsed Steve Gonzalez.`,
+    });
   }
 
   // 6. Calculate momentum
@@ -198,8 +188,9 @@ export function processTurn(state: GameState, actions: AllocatedAction[]): TurnR
     expenses,
     net: income - expenses,
     breakdown: [
-      { source: 'Fundraising', amount: income - state.finances.online_income_rate },
-      { source: 'Online/Passive', amount: state.finances.online_income_rate },
+      { source: 'Fundraising', amount: fundraisingResult.small_donors + fundraisingResult.large_donors },
+      { source: 'PAC Money', amount: fundraisingResult.pac_money },
+      { source: 'Online/Passive', amount: fundraisingResult.online_income },
       { source: 'Staff Salaries', amount: -(expenses - gotvInvestment - state.ads.reduce((s, a) => s + a.budget, 0)) },
       { source: 'Advertising', amount: -state.ads.reduce((s, a) => s + a.budget, 0) },
       { source: 'GOTV', amount: -gotvInvestment },
@@ -210,6 +201,13 @@ export function processTurn(state: GameState, actions: AllocatedAction[]): TurnR
     turn: state.current_turn,
     poll_changes: pollChanges,
     financial_summary: financialSummary,
+    fundraising_detail: {
+      small_donors: fundraisingResult.small_donors,
+      large_donors: fundraisingResult.large_donors,
+      pac_money: fundraisingResult.pac_money,
+      online_income: fundraisingResult.online_income,
+      email_list_growth: fundraisingResult.email_list_growth,
+    },
     events_triggered: [],
     opponent_actions: opponentActions,
     momentum_change: newMomentum - state.momentum,
@@ -223,17 +221,21 @@ export function applyTurnResult(state: GameState, result: TurnResult, actions: A
   const rng = new SeededRandom(state.seed + state.current_turn * 1000);
 
   // Apply polling changes
-  const hasCommsDirector = state.staff.some((s) => s.role === 'comms-director' && s.hired);
-  const hasDigitalDirector = state.staff.some((s) => s.role === 'digital-director' && s.hired);
-  const { newPolls } = calculatePollChanges(state.polls, actions, state.ads, state.momentum, hasCommsDirector, hasDigitalDirector, rng);
+  const { newPolls } = calculatePollChanges(state.polls, actions, state.ads, state.momentum, state.staff, rng);
   newState.polls = newPolls;
 
-  // Apply finances
+  // Apply finances with fundraising detail
+  const detail = result.fundraising_detail;
   newState.finances = {
     ...state.finances,
     cash_on_hand: state.finances.cash_on_hand + result.financial_summary.net,
     total_raised: state.finances.total_raised + result.financial_summary.income,
     total_spent: state.finances.total_spent + result.financial_summary.expenses,
+    small_donors: state.finances.small_donors + (detail?.small_donors ?? 0),
+    large_donors: state.finances.large_donors + (detail?.large_donors ?? 0),
+    pac_money: state.finances.pac_money + (detail?.pac_money ?? 0),
+    email_list_size: state.finances.email_list_size + (detail?.email_list_growth ?? 0),
+    online_income_rate: state.finances.online_income_rate + (detail?.email_list_growth ?? 0) * 0.5,
     weekly_burn_rate: result.financial_summary.expenses,
     fundraising_history: [
       ...state.finances.fundraising_history,

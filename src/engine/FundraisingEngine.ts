@@ -19,6 +19,7 @@ export function calculateFundraising(
   momentum: number,
   _turn: number,
   rng: SeededRandom,
+  endorsementsSecuredCount: number = 0,
 ): FundraisingResult {
   const hasFinanceDirector = staff.some((s) => s.role === 'finance-director' && s.hired);
   const hasDigitalDirector = staff.some((s) => s.role === 'digital-director' && s.hired);
@@ -39,6 +40,12 @@ export function calculateFundraising(
     const largeDonorMultiplier = Math.pow(GAME_CONSTANTS.LARGE_DONOR_DIMINISHING_FACTOR, finances.large_donors / 100000);
     const largeDonorAmount = GAME_CONSTANTS.LARGE_DONOR_BASE * action.intensity * directorBonus * largeDonorMultiplier * noise;
     largeDonors += largeDonorAmount;
+  }
+
+  // PAC money: unlocks at 2+ endorsements, scales to 5
+  if (endorsementsSecuredCount >= 2) {
+    const scaleFactor = Math.min(endorsementsSecuredCount / 5, 1);
+    pacMoney = GAME_CONSTANTS.PAC_MONEY_BASE * scaleFactor;
   }
 
   // Online passive income
