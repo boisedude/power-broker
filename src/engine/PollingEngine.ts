@@ -17,15 +17,20 @@ export function calculatePollChanges(
   const changes: PollChange[] = [];
   const newDemographics = polls.demographics.map((d) => ({ ...d }));
 
-  // Process campaign actions
+  // Process campaign actions (with diminishing returns per demographic)
   const campaignActions = actions.filter((a) => a.type === 'campaign');
+  const demoCampaignCount: Record<string, number> = {};
   for (const action of campaignActions) {
     for (const demo of newDemographics) {
       if (action.target && action.target !== demo.id) continue;
-      const baseBoost = GAME_CONSTANTS.CAMPAIGN_BASE_POLL_BOOST * action.intensity;
+      const timesTargeted = demoCampaignCount[demo.id] ?? 0;
+      const diminishing = Math.pow(GAME_CONSTANTS.CAMPAIGN_DIMINISHING_FACTOR, timesTargeted);
+      const baseBoost = GAME_CONSTANTS.CAMPAIGN_BASE_POLL_BOOST * action.intensity * diminishing;
       const persuadabilityMod = demo.persuadability;
       const noise = rng.nextFloat(-0.3, 0.3);
       const change = baseBoost * persuadabilityMod + noise;
+
+      demoCampaignCount[demo.id] = timesTargeted + 1;
 
       if (Math.abs(change) > 0.1) {
         demo.current_support = clamp(demo.current_support + change, 0, 100);

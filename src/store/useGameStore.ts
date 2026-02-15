@@ -133,8 +133,11 @@ export const useGameStore = create<GameStore>()(
 
             s.polls = newGameState.polls;
 
-            // Apply opponent poll effect
+            // Apply opponent poll effect at demographic level so it survives recalculation
             const oppEffect = getOpponentPollEffect(opponentResult, s.polls.opponent_support);
+            for (const demo of s.polls.demographics) {
+              demo.opponent_support = clamp(demo.opponent_support + oppEffect, 0, 100);
+            }
             s.polls.opponent_support = clamp(s.polls.opponent_support + oppEffect, 0, 100);
 
             s.finances = newGameState.finances;
