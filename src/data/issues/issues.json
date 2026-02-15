@@ -1,0 +1,50 @@
+[
+  {
+    "id": "water-drought",
+    "name": "Water & Drought Crisis",
+    "description": "The Colorado River crisis threatens Lake Mead and Southern Nevada's water supply. Susie Lee has expertise here as VP of the Colorado River Caucus.",
+    "salience": 0.85,
+    "player_position": "Market-based water solutions, desalination investment, reduce federal regulations",
+    "opponent_position": "Federal conservation programs, Colorado River compact enforcement, infrastructure spending"
+  },
+  {
+    "id": "housing-costs",
+    "name": "Housing Costs",
+    "description": "Median home price at $489K with rapid appreciation pricing out working families. Steve's real estate background is both an asset and liability.",
+    "salience": 0.9,
+    "player_position": "Reduce regulations, increase supply, first-time buyer incentives",
+    "opponent_position": "Affordable housing programs, rent stabilization, federal housing vouchers"
+  },
+  {
+    "id": "economy-cost-of-living",
+    "name": "Economy & Cost of Living",
+    "description": "Inflation and hospitality sector recovery dominate economic concerns in Las Vegas area.",
+    "salience": 0.95,
+    "player_position": "Tax cuts, deregulation, small business support",
+    "opponent_position": "Worker protections, minimum wage increase, targeted relief programs"
+  },
+  {
+    "id": "immigration",
+    "name": "Immigration",
+    "description": "25% foreign-born population makes this deeply personal. Steve's bilingual ability and Latino heritage add nuance.",
+    "salience": 0.8,
+    "player_position": "Border security with pathway for legal immigration, workforce solutions",
+    "opponent_position": "Comprehensive reform, DACA protections, family reunification"
+  },
+  {
+    "id": "healthcare",
+    "name": "Healthcare",
+    "description": "Large senior population drives concern over prescription costs and Medicare access.",
+    "salience": 0.75,
+    "player_position": "Market competition, drug pricing transparency, HSA expansion",
+    "opponent_position": "Medicare negotiation, ACA expansion, prescription cost caps"
+  },
+  {
+    "id": "education",
+    "name": "Education",
+    "description": "School funding and workforce training. Nevada consistently ranks near bottom nationally.",
+    "salience": 0.7,
+    "player_position": "School choice, vocational training, parental rights",
+    "opponent_position": "Increased federal funding, teacher pay, universal pre-K"
+  }
+]

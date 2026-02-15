@@ -1,0 +1,22 @@
+{
+  "id": "susie-lee",
+  "name": "Susie Lee",
+  "party": "Democrat",
+  "title": "Incumbent Congresswoman",
+  "terms": 4,
+  "age": 60,
+  "education": "Carnegie Mellon University, Policy degree",
+  "committees": ["Appropriations Committee", "Natural Resources Committee"],
+  "caucuses": ["Colorado River Caucus (VP)"],
+  "bio": "4-term incumbent since 2018. Water resource expert. Founded homeless shelters and education nonprofits.",
+  "strengths": ["Constituent service", "Water expertise", "Fundraising network", "Name recognition", "Institutional endorsements"],
+  "weaknesses": ["Washington insider perception", "Tied to national Democratic brand", "Seen as career politician"],
+  "starting_cash": 500000,
+  "starting_approval": 48,
+  "base_fundraising_rate": 45000,
+  "strategy": "establishment",
+  "attack_threshold": -3,
+  "staff_level": 4,
+  "name_recognition": 85,
+  "endorsements": ["Culinary Workers Union", "Nevada State Education Association", "League of Conservation Voters", "Emily's List"]
+}

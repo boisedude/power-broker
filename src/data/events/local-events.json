@@ -1,0 +1,214 @@
+[
+  {
+    "id": "loc-1",
+    "category": "local",
+    "title": "Lake Mead Hits Record Low",
+    "description": "Lake Mead water levels drop to a new record low. Water rationing is now being discussed for Southern Nevada. This is Susie Lee's signature issue.",
+    "severity": "crisis",
+    "phase_range": ["primary", "final"],
+    "probability": 0.15,
+    "one_time": true,
+    "choices": [
+      { "id": "challenge-lee", "text": "Challenge Lee's water record as insufficient", "effects": [{"type": "opponent_change", "value": -1.5, "description": "Lee put on defense"}, {"type": "demographic_change", "value": 1, "demographic": "rural-conservative", "description": "Government skeptics agree"}, {"type": "demographic_change", "value": -1, "demographic": "retirees-seniors", "description": "Seniors trust Lee on water"}] },
+      { "id": "own-plan", "text": "Release your own comprehensive water plan", "effects": [{"type": "poll_change", "value": 1.5, "description": "Leadership shown"}, {"type": "momentum_change", "value": 1, "description": "Policy initiative"}, {"type": "cash_change", "value": -10000, "description": "Policy research costs"}] },
+      { "id": "desal", "text": "Push bold desalination proposal", "effects": [{"type": "poll_change", "value": 1, "description": "Bold vision"}, {"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Long-term solution"}, {"type": "demographic_change", "value": -1, "demographic": "rural-conservative", "description": "Government spending concerns"}] }
+    ]
+  },
+  {
+    "id": "loc-2",
+    "category": "local",
+    "title": "Casino Resort Layoffs",
+    "description": "A major Strip casino announces 2,000 layoffs, sending shockwaves through the hospitality community. Many workers live in NV-03.",
+    "severity": "major",
+    "phase_range": ["primary", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "workers", "text": "Stand with laid-off workers, visit picket lines", "effects": [{"type": "demographic_change", "value": 3, "demographic": "hospitality-workers", "description": "Workers feel seen"}, {"type": "demographic_change", "value": 1, "demographic": "latino-hispanic", "description": "Community solidarity"}, {"type": "demographic_change", "value": -1, "demographic": "rural-conservative", "description": "Seen as too liberal"}] },
+      { "id": "business", "text": "Focus on economic conditions causing the layoffs", "effects": [{"type": "poll_change", "value": 0.5, "description": "Economic message"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Economic anxiety"}] }
+    ]
+  },
+  {
+    "id": "loc-3",
+    "category": "local",
+    "title": "Housing Development Controversy",
+    "description": "A new housing development in Summerlin faces opposition from residents. Steve's real estate background makes this personal.",
+    "severity": "moderate",
+    "phase_range": ["primary", "final"],
+    "probability": 0.12,
+    "one_time": true,
+    "choices": [
+      { "id": "pro-development", "text": "Support smart development to lower housing costs", "effects": [{"type": "demographic_change", "value": 1, "demographic": "latino-hispanic", "description": "Affordability matters"}, {"type": "demographic_change", "value": -1.5, "demographic": "suburban-families", "description": "NIMBYs upset"}, {"type": "poll_change", "value": 0.5, "description": "Consistent message"}] },
+      { "id": "community", "text": "Side with the community on this specific project", "effects": [{"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Community champion"}, {"type": "demographic_change", "value": -1, "demographic": "rural-conservative", "description": "Anti-business perception"}] }
+    ]
+  },
+  {
+    "id": "loc-4",
+    "category": "local",
+    "title": "Pahrump Town Hall Ambush",
+    "description": "At a town hall in Pahrump, angry constituents challenge Steve on immigration. It's tense but a chance to show leadership.",
+    "severity": "moderate",
+    "phase_range": ["primary", "mid"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "stand-firm", "text": "Stand firm on border security with conviction", "effects": [{"type": "demographic_change", "value": 3, "demographic": "rural-conservative", "description": "Pahrump loves it"}, {"type": "momentum_change", "value": 1, "description": "Showed backbone"}] },
+      { "id": "listen", "text": "Listen carefully and give thoughtful, personal answers", "effects": [{"type": "poll_change", "value": 1, "description": "Authentic moment"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Thoughtful leader"}] }
+    ]
+  },
+  {
+    "id": "loc-5",
+    "category": "local",
+    "title": "Las Vegas Heat Emergency",
+    "description": "A record heat wave hits Las Vegas with temperatures over 120°F. Several deaths reported. Climate and water concerns surge.",
+    "severity": "crisis",
+    "phase_range": ["primary", "early"],
+    "probability": 0.12,
+    "one_time": true,
+    "choices": [
+      { "id": "help", "text": "Organize cooling centers and volunteer efforts", "effects": [{"type": "poll_change", "value": 2, "description": "Visible leadership"}, {"type": "momentum_change", "value": 1.5, "description": "Action in crisis"}, {"type": "cash_change", "value": -8000, "description": "Emergency relief costs"}] },
+      { "id": "policy", "text": "Propose heat mitigation and infrastructure policy", "effects": [{"type": "poll_change", "value": 1, "description": "Forward thinking"}, {"type": "demographic_change", "value": 1, "demographic": "retirees-seniors", "description": "Seniors vulnerable to heat"}] }
+    ]
+  },
+  {
+    "id": "loc-6",
+    "category": "local",
+    "title": "Culinary Union Rally",
+    "description": "The powerful Culinary Workers Union holds a major rally in Las Vegas. They've endorsed Lee, but some members are open to Steve.",
+    "severity": "moderate",
+    "phase_range": ["early", "mid"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "attend", "text": "Show up and engage with union members directly", "effects": [{"type": "demographic_change", "value": 2, "demographic": "hospitality-workers", "description": "Brave move"}, {"type": "demographic_change", "value": 1, "demographic": "latino-hispanic", "description": "Community presence"}, {"type": "momentum_change", "value": 0.5, "description": "Bold"}] },
+      { "id": "counter", "text": "Hold a competing workers' town hall nearby", "effects": [{"type": "demographic_change", "value": 1, "demographic": "hospitality-workers", "description": "Alternative voice"}, {"type": "poll_change", "value": 0.5, "description": "Media coverage"}] }
+    ]
+  },
+  {
+    "id": "loc-7",
+    "category": "local",
+    "title": "Clark County School Crisis",
+    "description": "Clark County School District announces teacher shortages and budget cuts. Parents are furious.",
+    "severity": "moderate",
+    "phase_range": ["primary", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "choice", "text": "Push school choice as the solution", "effects": [{"type": "demographic_change", "value": 2, "demographic": "rural-conservative", "description": "Choice resonates"}, {"type": "demographic_change", "value": -1, "demographic": "hospitality-workers", "description": "Union opposition"}] },
+      { "id": "funding", "text": "Call for emergency federal education funding", "effects": [{"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Parents relieved"}, {"type": "demographic_change", "value": 1, "demographic": "asian-american", "description": "Education priority"}] }
+    ]
+  },
+  {
+    "id": "loc-8",
+    "category": "local",
+    "title": "New Casino Project Announcement",
+    "description": "A major new casino resort project is announced for the NV-03 area, promising 5,000 jobs but raising traffic and development concerns.",
+    "severity": "moderate",
+    "phase_range": ["early", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "support", "text": "Support the project for jobs and growth", "effects": [{"type": "demographic_change", "value": 2, "demographic": "hospitality-workers", "description": "Jobs welcome"}, {"type": "cash_change", "value": 20000, "description": "Developer donations"}, {"type": "demographic_change", "value": -1, "demographic": "suburban-families", "description": "Traffic concerns"}] },
+      { "id": "conditions", "text": "Support with conditions for community impact", "effects": [{"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Balanced approach"}, {"type": "demographic_change", "value": 1, "demographic": "hospitality-workers", "description": "Jobs with protections"}, {"type": "poll_change", "value": 0.5, "description": "Thoughtful stance"}] }
+    ]
+  },
+  {
+    "id": "loc-9",
+    "category": "local",
+    "title": "Former Galaxy Teammate Campaigns",
+    "description": "Three of Steve's former LA Galaxy teammates offer to campaign with him across the district. Great visibility opportunity.",
+    "severity": "minor",
+    "phase_range": ["primary", "final"],
+    "probability": 0.15,
+    "one_time": true,
+    "choices": [
+      { "id": "tour", "text": "Do a district-wide campaign tour with them", "effects": [{"type": "poll_change", "value": 1.5, "description": "Celebrity appeal"}, {"type": "demographic_change", "value": 2, "demographic": "latino-hispanic", "description": "Soccer community excited"}, {"type": "email_list_change", "value": 2000, "description": "Sports fans sign up"}] },
+      { "id": "fundraiser", "text": "Host a sports-themed fundraiser", "effects": [{"type": "cash_change", "value": 30000, "description": "Celebrity fundraiser"}, {"type": "poll_change", "value": 0.5, "description": "Media coverage"}] }
+    ]
+  },
+  {
+    "id": "loc-10",
+    "category": "local",
+    "title": "Las Vegas Review-Journal Profile",
+    "description": "The Review-Journal wants to do a long profile of Steve. Great for name recognition but they'll dig into his business record.",
+    "severity": "moderate",
+    "phase_range": ["primary", "mid"],
+    "probability": 0.12,
+    "one_time": true,
+    "choices": [
+      { "id": "full-access", "text": "Grant full access and be completely transparent", "effects": [{"type": "poll_change", "value": 2, "description": "Positive profile"}, {"type": "momentum_change", "value": 1, "description": "Name recognition boost"}, {"type": "email_list_change", "value": 1000, "description": "Readers sign up"}] },
+      { "id": "limited", "text": "Cooperate but set boundaries on business questions", "effects": [{"type": "poll_change", "value": 0.5, "description": "Neutral profile"}, {"type": "momentum_change", "value": 0, "description": "Nothing special"}] }
+    ]
+  },
+  {
+    "id": "loc-11",
+    "category": "local",
+    "title": "Laughlin Community Flooding",
+    "description": "Flash floods damage homes in the Laughlin community along the Colorado River. A small but loyal part of the district.",
+    "severity": "moderate",
+    "phase_range": ["primary", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "visit", "text": "Visit Laughlin immediately with supplies and volunteers", "effects": [{"type": "poll_change", "value": 1, "description": "Visible care"}, {"type": "demographic_change", "value": 3, "demographic": "rural-conservative", "description": "Rural voters notice"}, {"type": "cash_change", "value": -5000, "description": "Relief supplies"}] },
+      { "id": "statement", "text": "Issue a strong statement calling for federal disaster aid", "effects": [{"type": "poll_change", "value": 0.5, "description": "Appropriate response"}, {"type": "demographic_change", "value": 1, "demographic": "rural-conservative", "description": "Some appreciation"}] }
+    ]
+  },
+  {
+    "id": "loc-12",
+    "category": "local",
+    "title": "Spring Valley Community Fair",
+    "description": "The annual Spring Valley community fair is coming up. Great opportunity for retail politics in a key diverse neighborhood.",
+    "severity": "minor",
+    "phase_range": ["primary", "mid"],
+    "probability": 0.15,
+    "one_time": true,
+    "choices": [
+      { "id": "booth", "text": "Set up a campaign booth and meet voters", "effects": [{"type": "demographic_change", "value": 1.5, "demographic": "asian-american", "description": "Community engagement"}, {"type": "demographic_change", "value": 1, "demographic": "latino-hispanic", "description": "Face-to-face politics"}, {"type": "cash_change", "value": -3000, "description": "Booth and materials"}] },
+      { "id": "soccer", "text": "Organize a youth soccer clinic at the fair", "effects": [{"type": "demographic_change", "value": 2, "demographic": "latino-hispanic", "description": "Soccer hero"}, {"type": "demographic_change", "value": 2, "demographic": "asian-american", "description": "Youth engagement"}, {"type": "poll_change", "value": 1, "description": "Great optics"}, {"type": "cash_change", "value": -5000, "description": "Clinic costs"}] }
+    ]
+  },
+  {
+    "id": "loc-13",
+    "category": "local",
+    "title": "Real Estate Scandal Allegation",
+    "description": "A local blog alleges irregularities in one of Steve's old real estate deals. Likely opposition research from Lee's campaign.",
+    "severity": "major",
+    "phase_range": ["mid", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "full-response", "text": "Release all documents and demand a retraction", "effects": [{"type": "poll_change", "value": 0.5, "description": "Transparency wins"}, {"type": "momentum_change", "value": -0.5, "description": "Distraction"}, {"type": "cash_change", "value": -10000, "description": "Legal and PR costs"}] },
+      { "id": "ignore", "text": "Dismiss it as political smear and move on", "effects": [{"type": "poll_change", "value": -1, "description": "Story lingers"}, {"type": "demographic_change", "value": -1, "demographic": "suburban-families", "description": "Unanswered questions"}] },
+      { "id": "counter-attack", "text": "Counter-attack Lee's own financial record", "effects": [{"type": "opponent_change", "value": -1, "description": "Muddies waters"}, {"type": "momentum_change", "value": -1, "description": "Negative cycle"}, {"type": "poll_change", "value": -0.5, "description": "Voters dislike fighting"}] }
+    ]
+  },
+  {
+    "id": "loc-14",
+    "category": "local",
+    "title": "Enterprise Small Business Boom",
+    "description": "Enterprise area reports record small business growth. An opportunity to highlight your economic message.",
+    "severity": "minor",
+    "phase_range": ["early", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "tour", "text": "Do a small business tour highlighting success stories", "effects": [{"type": "poll_change", "value": 1, "description": "Positive narrative"}, {"type": "cash_change", "value": 8000, "description": "Business owner donations"}, {"type": "demographic_change", "value": 1, "demographic": "asian-american", "description": "Many Asian-owned businesses"}] },
+      { "id": "policy", "text": "Release a small business policy platform", "effects": [{"type": "poll_change", "value": 0.5, "description": "Policy substance"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Entrepreneurial appeal"}] }
+    ]
+  },
+  {
+    "id": "loc-15",
+    "category": "local",
+    "title": "Asian American Heritage Festival",
+    "description": "The NV-03 Asian American community is hosting their heritage festival in Chinatown. A key demographic opportunity.",
+    "severity": "minor",
+    "phase_range": ["primary", "mid"],
+    "probability": 0.12,
+    "one_time": true,
+    "choices": [
+      { "id": "attend", "text": "Attend and give a bilingual speech", "effects": [{"type": "demographic_change", "value": 3, "demographic": "asian-american", "description": "Community engagement"}, {"type": "poll_change", "value": 0.5, "description": "Inclusive image"}] },
+      { "id": "sponsor", "text": "Sponsor the event and set up a campaign booth", "effects": [{"type": "demographic_change", "value": 2, "demographic": "asian-american", "description": "Community investment"}, {"type": "cash_change", "value": -5000, "description": "Sponsorship costs"}, {"type": "email_list_change", "value": 800, "description": "Community signups"}] }
+    ]
+  }
+]

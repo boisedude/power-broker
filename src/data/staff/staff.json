@@ -1,0 +1,50 @@
+[
+  {
+    "id": "cm-maria-santos",
+    "role": "campaign-manager",
+    "name": "Maria Santos",
+    "cost": 8000,
+    "description": "Veteran Nevada campaign operative. +1 Action Point per turn.",
+    "available_turn": 1
+  },
+  {
+    "id": "fd-james-chen",
+    "role": "field-director",
+    "name": "James Chen",
+    "cost": 5000,
+    "description": "Former union organizer. Boosts GOTV effectiveness by 40%.",
+    "available_turn": 1
+  },
+  {
+    "id": "cd-rachel-torres",
+    "role": "comms-director",
+    "name": "Rachel Torres",
+    "cost": 6000,
+    "description": "Ex-TV news producer. Increases ad effectiveness by 25%.",
+    "available_turn": 1
+  },
+  {
+    "id": "fnd-david-park",
+    "role": "finance-director",
+    "name": "David Park",
+    "cost": 5500,
+    "description": "Connected to Vegas business community. Fundraising +30%.",
+    "available_turn": 1
+  },
+  {
+    "id": "dd-alex-rivera",
+    "role": "digital-director",
+    "name": "Alex Rivera",
+    "cost": 4500,
+    "description": "Social media specialist. Targeted digital ads +35%, online fundraising +20%.",
+    "available_turn": 3
+  },
+  {
+    "id": "poll-sarah-kim",
+    "role": "pollster",
+    "name": "Sarah Kim",
+    "cost": 4000,
+    "description": "Data analyst. Reduces poll margin of error to +/- 1.5pts.",
+    "available_turn": 1
+  }
+]

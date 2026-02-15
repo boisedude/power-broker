@@ -1,0 +1,94 @@
+[
+  {
+    "id": "debate-1",
+    "category": "debate",
+    "title": "First Debate: Economy & Jobs",
+    "description": "The first debate focuses on the economy and jobs. The moderator opens with: 'What's your plan to address the cost of living in NV-03?'",
+    "severity": "major",
+    "phase_range": ["early", "mid"],
+    "turn_range": [10, 10],
+    "probability": 1.0,
+    "one_time": true,
+    "choices": [
+      { "id": "business", "text": "Lead with your business experience and job creation", "effects": [{"type": "poll_change", "value": 1.5, "description": "Business credibility"}, {"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Economic message resonates"}, {"type": "momentum_change", "value": 1, "description": "Strong debate"}] },
+      { "id": "attack", "text": "Attack Lee's record on inflation and cost of living", "effects": [{"type": "opponent_change", "value": -1.5, "description": "Lee on defense"}, {"type": "poll_change", "value": 1, "description": "Effective contrast"}, {"type": "momentum_change", "value": 0.5, "description": "On offense"}] },
+      { "id": "empathy", "text": "Share personal stories connecting with working families", "effects": [{"type": "poll_change", "value": 1, "description": "Humanizing moment"}, {"type": "demographic_change", "value": 1.5, "demographic": "hospitality-workers", "description": "Workers relate"}, {"type": "demographic_change", "value": 1, "demographic": "latino-hispanic", "description": "Personal connection"}] }
+    ]
+  },
+  {
+    "id": "debate-2",
+    "category": "debate",
+    "title": "Second Debate: Water & Environment",
+    "description": "The second debate centers on water and environment. Lee has the advantage here as the Colorado River Caucus VP.",
+    "severity": "major",
+    "phase_range": ["mid", "mid"],
+    "turn_range": [17, 17],
+    "probability": 1.0,
+    "one_time": true,
+    "choices": [
+      { "id": "challenge", "text": "Challenge Lee's results — 'After 4 terms, Lake Mead is lower than ever'", "effects": [{"type": "opponent_change", "value": -1, "description": "Results questioned"}, {"type": "poll_change", "value": 1, "description": "Effective challenge"}, {"type": "demographic_change", "value": -1, "demographic": "retirees-seniors", "description": "Seniors trust Lee on water"}] },
+      { "id": "innovation", "text": "Propose innovative market-based water solutions", "effects": [{"type": "poll_change", "value": 1.5, "description": "Fresh ideas"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Forward-thinking"}, {"type": "momentum_change", "value": 1, "description": "Policy substance"}] },
+      { "id": "pivot", "text": "Acknowledge her work but pivot to housing and economy", "effects": [{"type": "poll_change", "value": 0.5, "description": "Smooth pivot"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Housing matters more"}] }
+    ]
+  },
+  {
+    "id": "debate-3",
+    "category": "debate",
+    "title": "Final Debate: Closing Arguments",
+    "description": "The final debate. Last chance for a big moment. The moderator asks: 'Why should NV-03 voters choose you?'",
+    "severity": "crisis",
+    "phase_range": ["final", "final"],
+    "turn_range": [23, 23],
+    "probability": 1.0,
+    "one_time": true,
+    "choices": [
+      { "id": "outsider", "text": "Make the outsider case — 'Washington is broken, I'll fix it'", "effects": [{"type": "poll_change", "value": 2, "description": "Powerful closing"}, {"type": "demographic_change", "value": 2, "demographic": "rural-conservative", "description": "Anti-establishment appeal"}, {"type": "momentum_change", "value": 2, "description": "Strong finish"}, {"type": "demographic_change", "value": -1, "demographic": "retirees-seniors", "description": "Seniors prefer experience"}] },
+      { "id": "unity", "text": "Focus on bringing people together across party lines", "effects": [{"type": "poll_change", "value": 1.5, "description": "Unifying message"}, {"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Moderates love it"}, {"type": "demographic_change", "value": 1, "demographic": "asian-american", "description": "Community approach"}, {"type": "momentum_change", "value": 1, "description": "Positive energy"}] },
+      { "id": "record", "text": "Prosecute Lee's record point by point", "effects": [{"type": "opponent_change", "value": -2, "description": "Devastating critique"}, {"type": "poll_change", "value": 1, "description": "Effective but harsh"}, {"type": "demographic_change", "value": -1, "demographic": "suburban-families", "description": "Too negative for some"}] }
+    ]
+  },
+  {
+    "id": "debate-4",
+    "category": "debate",
+    "title": "Debate: Unexpected Immigration Question",
+    "description": "During Q&A, a Dreamer student tearfully asks about DACA. This is personal for Steve given his Latino heritage.",
+    "severity": "major",
+    "phase_range": ["early", "final"],
+    "probability": 0.5,
+    "one_time": true,
+    "choices": [
+      { "id": "empathy-spanish", "text": "Respond in Spanish, share your family's story", "effects": [{"type": "demographic_change", "value": 4, "demographic": "latino-hispanic", "description": "Deeply personal moment"}, {"type": "poll_change", "value": 2, "description": "Viral moment"}, {"type": "demographic_change", "value": -2, "demographic": "rural-conservative", "description": "Base unhappy with sympathy"}, {"type": "momentum_change", "value": 1.5, "description": "Defining moment"}] },
+      { "id": "policy", "text": "Give a measured policy response about legal immigration", "effects": [{"type": "poll_change", "value": 0.5, "description": "Safe answer"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Thoughtful"}] },
+      { "id": "law-order", "text": "Redirect to rule of law and border security", "effects": [{"type": "demographic_change", "value": 2, "demographic": "rural-conservative", "description": "Base energized"}, {"type": "demographic_change", "value": -2, "demographic": "latino-hispanic", "description": "Alienated"}, {"type": "poll_change", "value": -0.5, "description": "Seen as cold"}] }
+    ]
+  },
+  {
+    "id": "debate-5",
+    "category": "debate",
+    "title": "Debate: Lee Attacks Steve's Business Record",
+    "description": "Lee goes on the offensive: 'My opponent profited while families lost homes in the housing crisis. Is that who you want in Congress?'",
+    "severity": "major",
+    "phase_range": ["mid", "final"],
+    "probability": 0.6,
+    "one_time": true,
+    "choices": [
+      { "id": "deny", "text": "Forcefully deny and provide context for your business record", "effects": [{"type": "poll_change", "value": 1, "description": "Effective defense"}, {"type": "momentum_change", "value": 0.5, "description": "Stood ground"}] },
+      { "id": "redirect", "text": "Pivot: 'Unlike career politicians, I know how the economy actually works'", "effects": [{"type": "poll_change", "value": 1.5, "description": "Strong pivot"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Business credibility"}, {"type": "opponent_change", "value": -0.5, "description": "Career politician label"}] },
+      { "id": "own-it", "text": "Own it: 'I built homes and created jobs. She's built nothing.'", "effects": [{"type": "poll_change", "value": 1, "description": "Confident"}, {"type": "demographic_change", "value": 2, "demographic": "rural-conservative", "description": "Base loves the fight"}, {"type": "momentum_change", "value": 1, "description": "Fighting spirit"}] }
+    ]
+  },
+  {
+    "id": "debate-6",
+    "category": "debate",
+    "title": "Debate: Healthcare Lightning Round",
+    "description": "The moderator asks both candidates for their 30-second healthcare pitch. Quick thinking required.",
+    "severity": "moderate",
+    "phase_range": ["early", "final"],
+    "probability": 0.5,
+    "one_time": true,
+    "choices": [
+      { "id": "market", "text": "Push market competition and price transparency", "effects": [{"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Market solutions"}, {"type": "demographic_change", "value": 1, "demographic": "rural-conservative", "description": "Free market"}] },
+      { "id": "seniors", "text": "Focus on protecting Medicare and reducing drug costs", "effects": [{"type": "demographic_change", "value": 3, "demographic": "retirees-seniors", "description": "Seniors love it"}, {"type": "poll_change", "value": 0.5, "description": "Popular position"}] }
+    ]
+  }
+]

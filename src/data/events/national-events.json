@@ -1,0 +1,212 @@
+[
+  {
+    "id": "nat-1",
+    "category": "national",
+    "title": "Presidential Rally in Las Vegas",
+    "description": "The President announces a rally in Las Vegas next week. Both parties are mobilizing. Do you attend the counter-rally or focus on your own campaign?",
+    "severity": "moderate",
+    "phase_range": ["primary", "final"],
+    "probability": 0.15,
+    "one_time": true,
+    "choices": [
+      { "id": "attend", "text": "Attend the counter-rally and energize the base", "effects": [{"type": "momentum_change", "value": 2, "description": "Base energized"}, {"type": "demographic_change", "value": 3, "demographic": "rural-conservative", "description": "Strong with base"}, {"type": "demographic_change", "value": -2, "demographic": "suburban-families", "description": "Moderate voters uneasy"}] },
+      { "id": "ignore", "text": "Stay focused on your district campaign", "effects": [{"type": "momentum_change", "value": 0.5, "description": "Steady leadership"}, {"type": "poll_change", "value": 0.5, "description": "Voters appreciate local focus"}] }
+    ]
+  },
+  {
+    "id": "nat-2",
+    "category": "national",
+    "title": "Government Shutdown Threat",
+    "description": "Congress is heading toward a government shutdown. Voters are angry at Washington. How do you position yourself?",
+    "severity": "major",
+    "phase_range": ["early", "final"],
+    "probability": 0.12,
+    "one_time": true,
+    "choices": [
+      { "id": "blame-dems", "text": "Blame Democratic leadership for gridlock", "effects": [{"type": "demographic_change", "value": 2, "demographic": "rural-conservative", "description": "Base agrees"}, {"type": "demographic_change", "value": -1, "demographic": "hospitality-workers", "description": "Workers blame both sides"}] },
+      { "id": "bipartisan", "text": "Call for bipartisan compromise", "effects": [{"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Moderates appreciate"}, {"type": "poll_change", "value": 1, "description": "Broad appeal"}, {"type": "demographic_change", "value": -1, "demographic": "rural-conservative", "description": "Base wants fighters"}] }
+    ]
+  },
+  {
+    "id": "nat-3",
+    "category": "national",
+    "title": "Supreme Court Ruling on Immigration",
+    "description": "A major Supreme Court ruling on immigration enforcement makes national headlines. The ruling restricts state-level enforcement. Your response?",
+    "severity": "major",
+    "phase_range": ["primary", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "criticize", "text": "Criticize the ruling as government overreach", "effects": [{"type": "demographic_change", "value": 3, "demographic": "rural-conservative", "description": "Fired up"}, {"type": "demographic_change", "value": -2, "demographic": "latino-hispanic", "description": "Alienated"}, {"type": "momentum_change", "value": 1, "description": "Strong stance"}] },
+      { "id": "nuanced", "text": "Take a nuanced position respecting rule of law", "effects": [{"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Thoughtful approach"}, {"type": "demographic_change", "value": 1, "demographic": "latino-hispanic", "description": "Measured tone appreciated"}, {"type": "poll_change", "value": 0.5, "description": "Broad appeal"}] }
+    ]
+  },
+  {
+    "id": "nat-4",
+    "category": "national",
+    "title": "Stock Market Plunge",
+    "description": "Markets dropped 800 points today on recession fears. Voters in NV-03 are worried about their retirement accounts and home values.",
+    "severity": "major",
+    "phase_range": ["early", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "tax-cuts", "text": "Push for tax cuts and deregulation", "effects": [{"type": "demographic_change", "value": 2, "demographic": "retirees-seniors", "description": "Seniors want stability"}, {"type": "cash_change", "value": 15000, "description": "Donor spike from business community"}] },
+      { "id": "worker-protection", "text": "Focus on protecting workers and families", "effects": [{"type": "demographic_change", "value": 2, "demographic": "hospitality-workers", "description": "Workers feel heard"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Families reassured"}] }
+    ]
+  },
+  {
+    "id": "nat-5",
+    "category": "national",
+    "title": "Viral Social Media Moment",
+    "description": "A video of Steve's former LA Galaxy highlights goes viral, remixed with campaign messages. It's getting millions of views.",
+    "severity": "minor",
+    "phase_range": ["primary", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "lean-in", "text": "Lean into it — post more sports content", "effects": [{"type": "email_list_change", "value": 3000, "description": "Massive signup spike"}, {"type": "poll_change", "value": 1, "description": "Name recognition boost"}, {"type": "cash_change", "value": 10000, "description": "Small donor surge"}] },
+      { "id": "redirect", "text": "Use the attention to pivot to policy", "effects": [{"type": "poll_change", "value": 1.5, "description": "Serious candidate image"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Policy substance"}] }
+    ]
+  },
+  {
+    "id": "nat-6",
+    "category": "national",
+    "title": "National Party Endorsement Push",
+    "description": "The NRCC is deciding which races to prioritize. They want to see strong poll numbers before investing.",
+    "severity": "moderate",
+    "phase_range": ["early", "mid"],
+    "probability": 0.15,
+    "one_time": true,
+    "choices": [
+      { "id": "pitch", "text": "Make an aggressive pitch with your poll data", "effects": [{"type": "cash_change", "value": 50000, "description": "NRCC investment"}, {"type": "momentum_change", "value": 1, "description": "National attention"}] },
+      { "id": "grassroots", "text": "Show grassroots strength without national money", "effects": [{"type": "email_list_change", "value": 2000, "description": "Grassroots narrative"}, {"type": "demographic_change", "value": 1, "demographic": "rural-conservative", "description": "Independence valued"}] }
+    ]
+  },
+  {
+    "id": "nat-7",
+    "category": "national",
+    "title": "Inflation Report Spikes",
+    "description": "New CPI numbers show inflation rising again. Cost of living is the top concern in NV-03.",
+    "severity": "moderate",
+    "phase_range": ["primary", "final"],
+    "probability": 0.12,
+    "one_time": false,
+    "choices": [
+      { "id": "attack-incumbent", "text": "Blame Susie Lee and her party for inflation", "effects": [{"type": "opponent_change", "value": -1, "description": "Lee defensive"}, {"type": "poll_change", "value": 1, "description": "Economic message resonates"}] },
+      { "id": "solutions", "text": "Propose specific economic solutions for NV-03", "effects": [{"type": "poll_change", "value": 0.8, "description": "Policy substance"}, {"type": "demographic_change", "value": 1.5, "demographic": "suburban-families", "description": "Families respond to plans"}] }
+    ]
+  },
+  {
+    "id": "nat-8",
+    "category": "national",
+    "title": "Gun Control Debate Resurfaces",
+    "description": "A mass shooting in a nearby state reignites the gun control debate. The Las Vegas community is particularly sensitive after 2017.",
+    "severity": "major",
+    "phase_range": ["primary", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "second-amendment", "text": "Defend Second Amendment rights while showing empathy", "effects": [{"type": "demographic_change", "value": 2, "demographic": "rural-conservative", "description": "2A supporters energized"}, {"type": "demographic_change", "value": -1.5, "demographic": "suburban-families", "description": "Suburban moms concerned"}] },
+      { "id": "middle-ground", "text": "Support targeted reforms while protecting gun rights", "effects": [{"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Balance appreciated"}, {"type": "poll_change", "value": 0.5, "description": "Nuanced position"}] }
+    ]
+  },
+  {
+    "id": "nat-9",
+    "category": "national",
+    "title": "Major Celebrity Endorsement Offer",
+    "description": "A prominent conservative celebrity wants to campaign with Steve in Las Vegas. Great for fundraising but could polarize.",
+    "severity": "moderate",
+    "phase_range": ["mid", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "accept", "text": "Accept and hold a major fundraiser", "effects": [{"type": "cash_change", "value": 40000, "description": "Celebrity fundraiser haul"}, {"type": "demographic_change", "value": -1, "demographic": "suburban-families", "description": "Some moderates turned off"}, {"type": "momentum_change", "value": 1, "description": "Media buzz"}] },
+      { "id": "decline", "text": "Politely decline to stay focused on local issues", "effects": [{"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Independence valued"}, {"type": "poll_change", "value": 0.5, "description": "Local focus appreciated"}] }
+    ]
+  },
+  {
+    "id": "nat-10",
+    "category": "national",
+    "title": "Healthcare Costs Report",
+    "description": "A new report shows prescription drug costs up 15% in Nevada. Seniors and families are outraged.",
+    "severity": "moderate",
+    "phase_range": ["primary", "final"],
+    "probability": 0.12,
+    "one_time": true,
+    "choices": [
+      { "id": "market-solutions", "text": "Push market competition and transparency", "effects": [{"type": "demographic_change", "value": 1, "demographic": "retirees-seniors", "description": "Seniors want action"}, {"type": "poll_change", "value": 0.5, "description": "Healthcare message"}] },
+      { "id": "bipartisan-bill", "text": "Pledge to support bipartisan drug pricing reform", "effects": [{"type": "demographic_change", "value": 2, "demographic": "retirees-seniors", "description": "Seniors love it"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Families appreciate"}, {"type": "demographic_change", "value": -1, "demographic": "rural-conservative", "description": "Base suspicious"}] }
+    ]
+  },
+  {
+    "id": "nat-11",
+    "category": "national",
+    "title": "Education Funding Debate",
+    "description": "Nevada ranks near the bottom in school funding nationally. A federal education bill is generating heated debate.",
+    "severity": "minor",
+    "phase_range": ["primary", "mid"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "school-choice", "text": "Champion school choice and parental rights", "effects": [{"type": "demographic_change", "value": 2, "demographic": "rural-conservative", "description": "Base loves it"}, {"type": "demographic_change", "value": -1, "demographic": "hospitality-workers", "description": "Union opposition"}] },
+      { "id": "funding", "text": "Push for more funding with accountability measures", "effects": [{"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Parents respond"}, {"type": "demographic_change", "value": 1, "demographic": "asian-american", "description": "Education-focused community"}] }
+    ]
+  },
+  {
+    "id": "nat-12",
+    "category": "national",
+    "title": "Border Security Crisis Escalates",
+    "description": "A surge at the southern border dominates national news. Immigration becomes the top issue for many voters.",
+    "severity": "major",
+    "phase_range": ["primary", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "hardline", "text": "Take a hardline border security stance", "effects": [{"type": "demographic_change", "value": 3, "demographic": "rural-conservative", "description": "Strong support"}, {"type": "demographic_change", "value": 2, "demographic": "veterans-military", "description": "Security focus"}, {"type": "demographic_change", "value": -3, "demographic": "latino-hispanic", "description": "Latino community alienated"}] },
+      { "id": "balanced", "text": "Security plus legal immigration reform", "effects": [{"type": "demographic_change", "value": 1, "demographic": "rural-conservative", "description": "Some support"}, {"type": "demographic_change", "value": 2, "demographic": "latino-hispanic", "description": "Balanced approach"}, {"type": "poll_change", "value": 0.5, "description": "Broad appeal"}] }
+    ]
+  },
+  {
+    "id": "nat-13",
+    "category": "national",
+    "title": "Veterans Day Controversy",
+    "description": "A national figure makes insensitive comments about military service. Veterans groups want candidates to respond.",
+    "severity": "minor",
+    "phase_range": ["mid", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "strong-statement", "text": "Issue a strong statement honoring veterans", "effects": [{"type": "demographic_change", "value": 3, "demographic": "veterans-military", "description": "Vets appreciate it"}, {"type": "poll_change", "value": 0.5, "description": "Positive coverage"}] },
+      { "id": "event", "text": "Host a veterans appreciation event", "effects": [{"type": "demographic_change", "value": 2, "demographic": "veterans-military", "description": "In-person connection"}, {"type": "cash_change", "value": -5000, "description": "Event costs"}, {"type": "momentum_change", "value": 1, "description": "Good press"}] }
+    ]
+  },
+  {
+    "id": "nat-14",
+    "category": "national",
+    "title": "Tech Industry Layoffs Hit Vegas",
+    "description": "Major tech layoffs are announced, affecting remote workers in Summerlin and Henderson.",
+    "severity": "moderate",
+    "phase_range": ["early", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "business-friendly", "text": "Promote business-friendly policies to attract companies", "effects": [{"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Tech workers reassured"}, {"type": "cash_change", "value": 10000, "description": "Business community donors"}] },
+      { "id": "retraining", "text": "Push for workforce retraining programs", "effects": [{"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Practical help"}, {"type": "demographic_change", "value": 1, "demographic": "asian-american", "description": "Tech community responds"}] }
+    ]
+  },
+  {
+    "id": "nat-15",
+    "category": "national",
+    "title": "Social Security Scare",
+    "description": "A report claims Social Security could be insolvent within 10 years. Retirees in Sun City and Summerlin are alarmed.",
+    "severity": "major",
+    "phase_range": ["mid", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "protect", "text": "Pledge to protect benefits without cuts", "effects": [{"type": "demographic_change", "value": 3, "demographic": "retirees-seniors", "description": "Seniors reassured"}, {"type": "poll_change", "value": 1, "description": "Strong position"}] },
+      { "id": "reform", "text": "Propose responsible reform to ensure solvency", "effects": [{"type": "demographic_change", "value": 1, "demographic": "retirees-seniors", "description": "Honest approach"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Fiscal responsibility"}, {"type": "poll_change", "value": 0.5, "description": "Thoughtful"}] }
+    ]
+  }
+]

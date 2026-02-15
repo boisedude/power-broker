@@ -1,0 +1,144 @@
+[
+  {
+    "id": "opp-1",
+    "category": "opponent",
+    "title": "Lee Launches Attack Ads",
+    "description": "Susie Lee's campaign begins running attack ads calling Steve an 'inexperienced outsider who'll gamble with your future.'",
+    "severity": "major",
+    "phase_range": ["mid", "final"],
+    "probability": 0.15,
+    "one_time": true,
+    "choices": [
+      { "id": "respond", "text": "Run response ads highlighting your experience", "effects": [{"type": "poll_change", "value": 0.5, "description": "Countered effectively"}, {"type": "cash_change", "value": -20000, "description": "Response ad costs"}] },
+      { "id": "contrast", "text": "Run contrast ads about Lee's record instead", "effects": [{"type": "opponent_change", "value": -1, "description": "Shifted narrative"}, {"type": "poll_change", "value": 1, "description": "Offense beats defense"}, {"type": "cash_change", "value": -25000, "description": "Contrast ad costs"}] },
+      { "id": "ignore", "text": "Stay positive and let voters decide", "effects": [{"type": "poll_change", "value": -1, "description": "Unanswered attacks hurt"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Some appreciate positivity"}] }
+    ]
+  },
+  {
+    "id": "opp-2",
+    "category": "opponent",
+    "title": "Lee Secures Major Endorsement",
+    "description": "Susie Lee secures the endorsement of a popular local sheriff. This strengthens her with suburban and senior voters.",
+    "severity": "moderate",
+    "phase_range": ["early", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "counter", "text": "Highlight your own law enforcement connections", "effects": [{"type": "poll_change", "value": 0.5, "description": "Partially countered"}, {"type": "demographic_change", "value": 1, "demographic": "veterans-military", "description": "Security credibility"}] },
+      { "id": "pivot", "text": "Pivot to issues where you're stronger", "effects": [{"type": "momentum_change", "value": 0.5, "description": "Changed subject"}, {"type": "poll_change", "value": 0.3, "description": "Stayed on message"}] }
+    ]
+  },
+  {
+    "id": "opp-3",
+    "category": "opponent",
+    "title": "Lee's Constituent Town Hall",
+    "description": "Susie Lee holds a packed town hall in Summerlin. She gets tough questions on inflation but handles them well.",
+    "severity": "minor",
+    "phase_range": ["primary", "final"],
+    "probability": 0.12,
+    "one_time": false,
+    "choices": [
+      { "id": "shadow", "text": "Hold your own town hall in the same neighborhood", "effects": [{"type": "poll_change", "value": 0.5, "description": "Equal visibility"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Accessible candidate"}] },
+      { "id": "critique", "text": "Release a fact-check of Lee's claims", "effects": [{"type": "opponent_change", "value": -0.5, "description": "Credibility questioned"}, {"type": "momentum_change", "value": 0.5, "description": "On offense"}] }
+    ]
+  },
+  {
+    "id": "opp-4",
+    "category": "opponent",
+    "title": "Lee Fundraising Surge",
+    "description": "FEC reports show Lee raised $1.2M last quarter. She's outpacing you significantly in fundraising.",
+    "severity": "moderate",
+    "phase_range": ["primary", "mid"],
+    "probability": 0.12,
+    "one_time": true,
+    "choices": [
+      { "id": "urgent", "text": "Send urgent fundraising appeals about being outspent", "effects": [{"type": "cash_change", "value": 20000, "description": "Urgency drives donations"}, {"type": "email_list_change", "value": 1500, "description": "Urgency signups"}] },
+      { "id": "earned-media", "text": "Focus on earned media to compensate", "effects": [{"type": "poll_change", "value": 0.5, "description": "Free media strategy"}, {"type": "momentum_change", "value": 0.5, "description": "Underdog energy"}] }
+    ]
+  },
+  {
+    "id": "opp-5",
+    "category": "opponent",
+    "title": "Lee's Water Infrastructure Bill Passes",
+    "description": "Susie Lee's Colorado River infrastructure bill passes committee. She's getting national media for her signature issue.",
+    "severity": "major",
+    "phase_range": ["early", "mid"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "credit", "text": "Acknowledge the bill but argue it's not enough", "effects": [{"type": "poll_change", "value": -0.5, "description": "Hard to attack a win"}, {"type": "demographic_change", "value": 1, "demographic": "rural-conservative", "description": "Base agrees it's inadequate"}] },
+      { "id": "pivot", "text": "Pivot to issues where Lee is weaker", "effects": [{"type": "poll_change", "value": 0.5, "description": "Changed the subject"}, {"type": "momentum_change", "value": 0, "description": "Neutral"}] }
+    ]
+  },
+  {
+    "id": "opp-6",
+    "category": "opponent",
+    "title": "Lee Caught in Contradiction",
+    "description": "Video surfaces of Lee taking a position 2 years ago that contradicts her current stance on immigration. Your opposition research team found it.",
+    "severity": "major",
+    "phase_range": ["mid", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "blast", "text": "Blast it across all platforms immediately", "effects": [{"type": "opponent_change", "value": -2, "description": "Credibility damaged"}, {"type": "poll_change", "value": 1.5, "description": "Effective attack"}, {"type": "momentum_change", "value": 1.5, "description": "Big momentum"}] },
+      { "id": "strategic", "text": "Save it for a strategic moment closer to Election Day", "effects": [{"type": "momentum_change", "value": 0.5, "description": "Ammunition saved"}, {"type": "poll_change", "value": 0.3, "description": "Patience"}] }
+    ]
+  },
+  {
+    "id": "opp-7",
+    "category": "opponent",
+    "title": "Lee's Staff Departure",
+    "description": "A senior Lee staffer resigns citing 'strategic disagreements.' This could signal internal campaign problems.",
+    "severity": "minor",
+    "phase_range": ["early", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "exploit", "text": "Highlight the dysfunction in Lee's campaign", "effects": [{"type": "opponent_change", "value": -0.5, "description": "Bad optics"}, {"type": "momentum_change", "value": 0.5, "description": "Opponent struggling"}] },
+      { "id": "high-road", "text": "Take the high road and stay focused on voters", "effects": [{"type": "poll_change", "value": 0.5, "description": "Mature approach"}, {"type": "demographic_change", "value": 0.5, "demographic": "suburban-families", "description": "Dignity appreciated"}] }
+    ]
+  },
+  {
+    "id": "opp-8",
+    "category": "opponent",
+    "title": "Lee Debate Challenge",
+    "description": "Susie Lee challenges Steve to an additional debate, this one focused solely on water policy — her strongest issue.",
+    "severity": "moderate",
+    "phase_range": ["mid", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "accept", "text": "Accept the challenge — show you can compete on her turf", "effects": [{"type": "poll_change", "value": 1, "description": "Courage rewarded"}, {"type": "momentum_change", "value": 1, "description": "Bold move"}, {"type": "demographic_change", "value": -0.5, "demographic": "retirees-seniors", "description": "Risk on her turf"}] },
+      { "id": "counter", "text": "Counter-propose a debate on economy and housing instead", "effects": [{"type": "poll_change", "value": 0.5, "description": "Reframed debate"}, {"type": "momentum_change", "value": 0.5, "description": "Set your own terms"}] },
+      { "id": "decline", "text": "Decline — you have enough debates scheduled", "effects": [{"type": "poll_change", "value": -0.5, "description": "Seen as ducking"}, {"type": "opponent_change", "value": 0.5, "description": "Lee gains credibility"}] }
+    ]
+  },
+  {
+    "id": "opp-9",
+    "category": "opponent",
+    "title": "Lee's GOTV Machine Activates",
+    "description": "Intelligence reports that Lee's field operation is ramping up early. Her ground game is formidable with union support.",
+    "severity": "moderate",
+    "phase_range": ["final", "final"],
+    "probability": 0.15,
+    "one_time": true,
+    "choices": [
+      { "id": "match", "text": "Invest heavily in your own GOTV operation", "effects": [{"type": "gotv_change", "value": 15000, "description": "Ground game investment"}, {"type": "cash_change", "value": -15000, "description": "GOTV spending"}] },
+      { "id": "digital", "text": "Counter with digital GOTV tactics", "effects": [{"type": "gotv_change", "value": 8000, "description": "Digital GOTV"}, {"type": "cash_change", "value": -8000, "description": "Digital costs"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Targeted reminders"}] }
+    ]
+  },
+  {
+    "id": "opp-10",
+    "category": "opponent",
+    "title": "Lee Touts Constituent Service",
+    "description": "Lee's campaign runs ads featuring constituents she's helped with federal agency problems. Hard to attack good service.",
+    "severity": "minor",
+    "phase_range": ["mid", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "own-service", "text": "Highlight Steve's community service and charity work", "effects": [{"type": "poll_change", "value": 0.5, "description": "Service record"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Community leader"}] },
+      { "id": "bigger-picture", "text": "Argue constituent service isn't enough — NV-03 needs change", "effects": [{"type": "poll_change", "value": 0.8, "description": "Change message"}, {"type": "momentum_change", "value": 0.5, "description": "Forward-looking"}] }
+    ]
+  }
+]

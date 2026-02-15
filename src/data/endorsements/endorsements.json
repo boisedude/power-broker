@@ -1,0 +1,139 @@
+[
+  {
+    "id": "lv-review-journal",
+    "name": "Las Vegas Review-Journal",
+    "description": "Nevada's largest newspaper. Boosts name recognition across all demographics.",
+    "demographic_effects": {
+      "suburban-families": 3,
+      "retirees-seniors": 4,
+      "rural-conservative": 2
+    },
+    "fundraising_bonus": 5000,
+    "credibility_bonus": 5,
+    "requirements": "Must have 40%+ poll support",
+    "turns_to_secure": 2
+  },
+  {
+    "id": "culinary-union-local",
+    "name": "Culinary Workers Union Local 226",
+    "description": "Powerful Las Vegas hospitality union. Difficult for a Republican but possible.",
+    "demographic_effects": {
+      "hospitality-workers": 8,
+      "latino-hispanic": 3
+    },
+    "fundraising_bonus": 15000,
+    "credibility_bonus": 8,
+    "requirements": "Must support workers' healthcare positions",
+    "turns_to_secure": 4
+  },
+  {
+    "id": "nv-realtors",
+    "name": "Nevada Association of Realtors",
+    "description": "Key housing industry group. Strong with suburban voters.",
+    "demographic_effects": {
+      "suburban-families": 5,
+      "retirees-seniors": 2
+    },
+    "fundraising_bonus": 20000,
+    "credibility_bonus": 3,
+    "requirements": "Support housing development policies",
+    "turns_to_secure": 2
+  },
+  {
+    "id": "nv-chamber",
+    "name": "Las Vegas Chamber of Commerce",
+    "description": "Business community endorsement. Strong fundraising boost.",
+    "demographic_effects": {
+      "suburban-families": 2,
+      "rural-conservative": 3
+    },
+    "fundraising_bonus": 25000,
+    "credibility_bonus": 4,
+    "requirements": "Pro-business policy positions",
+    "turns_to_secure": 2
+  },
+  {
+    "id": "veterans-council",
+    "name": "Southern Nevada Veterans Council",
+    "description": "Respected veterans organization in Clark County.",
+    "demographic_effects": {
+      "veterans-military": 10,
+      "retirees-seniors": 3,
+      "rural-conservative": 2
+    },
+    "fundraising_bonus": 5000,
+    "credibility_bonus": 6,
+    "requirements": "Strong stance on VA funding",
+    "turns_to_secure": 2
+  },
+  {
+    "id": "la-galaxy-alumni",
+    "name": "LA Galaxy Alumni Association",
+    "description": "Steve's former teammates rally support. Great for name recognition.",
+    "demographic_effects": {
+      "latino-hispanic": 4,
+      "suburban-families": 2,
+      "asian-american": 2
+    },
+    "fundraising_bonus": 10000,
+    "credibility_bonus": 2,
+    "requirements": "Available from turn 1",
+    "turns_to_secure": 1
+  },
+  {
+    "id": "nv-homebuilders",
+    "name": "Southern Nevada Home Builders Association",
+    "description": "Aligns with Steve's real estate background.",
+    "demographic_effects": {
+      "suburban-families": 4,
+      "rural-conservative": 2
+    },
+    "fundraising_bonus": 15000,
+    "credibility_bonus": 3,
+    "requirements": "Pro-development housing stance",
+    "turns_to_secure": 2
+  },
+  {
+    "id": "police-union",
+    "name": "Las Vegas Police Protective Association",
+    "description": "Law enforcement endorsement. Strong with suburban and senior voters.",
+    "demographic_effects": {
+      "suburban-families": 4,
+      "retirees-seniors": 3,
+      "rural-conservative": 4
+    },
+    "fundraising_bonus": 8000,
+    "credibility_bonus": 5,
+    "requirements": "Back-the-blue policy positions",
+    "turns_to_secure": 3
+  },
+  {
+    "id": "asian-chamber",
+    "name": "Asian American Chamber of Commerce",
+    "description": "Growing political influence in NV-03's diverse business community.",
+    "demographic_effects": {
+      "asian-american": 8,
+      "suburban-families": 1
+    },
+    "fundraising_bonus": 12000,
+    "credibility_bonus": 4,
+    "requirements": "Engage with Asian American community",
+    "turns_to_secure": 3
+  },
+  {
+    "id": "trump-endorsement",
+    "name": "Former President Trump",
+    "description": "Massive Republican base energy but risks alienating moderates.",
+    "demographic_effects": {
+      "rural-conservative": 12,
+      "veterans-military": 4,
+      "suburban-families": -3,
+      "asian-american": -4,
+      "latino-hispanic": -2
+    },
+    "fundraising_bonus": 50000,
+    "credibility_bonus": -2,
+    "requirements": "Must be polling above 43%",
+    "turns_to_secure": 3
+  }
+]

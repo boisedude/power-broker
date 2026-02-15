@@ -1,0 +1,108 @@
+{
+  "id": "nv-03",
+  "name": "Nevada's 3rd Congressional District",
+  "state": "Nevada",
+  "cook_pvi": "D+1",
+  "population": 839000,
+  "median_income": 90358,
+  "key_areas": ["Summerlin South", "Spring Valley", "Enterprise", "Pahrump", "Laughlin"],
+  "urban_pct": 17,
+  "suburban_pct": 73,
+  "rural_pct": 10,
+  "demographics": [
+    {
+      "id": "suburban-families",
+      "name": "Suburban Families",
+      "electorate_pct": 25,
+      "base_lean": -5,
+      "persuadability": 0.8,
+      "key_issues": ["housing-costs", "education", "economy-cost-of-living"]
+    },
+    {
+      "id": "latino-hispanic",
+      "name": "Latino/Hispanic Voters",
+      "electorate_pct": 21,
+      "base_lean": -15,
+      "persuadability": 0.5,
+      "key_issues": ["immigration", "economy-cost-of-living", "healthcare"]
+    },
+    {
+      "id": "asian-american",
+      "name": "Asian American Voters",
+      "electorate_pct": 18,
+      "base_lean": -10,
+      "persuadability": 0.65,
+      "key_issues": ["economy-cost-of-living", "education", "immigration"]
+    },
+    {
+      "id": "retirees-seniors",
+      "name": "Retirees & Seniors",
+      "electorate_pct": 15,
+      "base_lean": 10,
+      "persuadability": 0.5,
+      "key_issues": ["healthcare", "economy-cost-of-living", "water-drought"]
+    },
+    {
+      "id": "hospitality-workers",
+      "name": "Hospitality Workers",
+      "electorate_pct": 10,
+      "base_lean": -30,
+      "persuadability": 0.25,
+      "key_issues": ["economy-cost-of-living", "healthcare", "housing-costs"]
+    },
+    {
+      "id": "rural-conservative",
+      "name": "Rural Conservatives",
+      "electorate_pct": 6,
+      "base_lean": 40,
+      "persuadability": 0.15,
+      "key_issues": ["immigration", "economy-cost-of-living", "water-drought"]
+    },
+    {
+      "id": "veterans-military",
+      "name": "Veterans & Military",
+      "electorate_pct": 5,
+      "base_lean": 15,
+      "persuadability": 0.5,
+      "key_issues": ["healthcare", "economy-cost-of-living", "immigration"]
+    }
+  ],
+  "issues": [
+    {
+      "id": "water-drought",
+      "name": "Water & Drought Crisis",
+      "description": "The Colorado River crisis threatens Lake Mead and Southern Nevada's water supply.",
+      "salience": 0.85
+    },
+    {
+      "id": "housing-costs",
+      "name": "Housing Costs",
+      "description": "Median home price at $489K with rapid appreciation pricing out families.",
+      "salience": 0.9
+    },
+    {
+      "id": "economy-cost-of-living",
+      "name": "Economy & Cost of Living",
+      "description": "Inflation and hospitality sector recovery dominate economic concerns.",
+      "salience": 0.95
+    },
+    {
+      "id": "immigration",
+      "name": "Immigration",
+      "description": "25% foreign-born population, border policy debates highly salient.",
+      "salience": 0.8
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare",
+      "description": "Large senior population drives concern over prescription costs and Medicare.",
+      "salience": 0.75
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "description": "School funding and workforce training are growing concerns for families.",
+      "salience": 0.7
+    }
+  ]
+}

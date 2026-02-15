@@ -1,0 +1,175 @@
+[
+  {
+    "id": "camp-1",
+    "category": "campaign",
+    "title": "Campaign Volunteer Surge",
+    "description": "A viral moment drives a wave of new volunteers. How do you deploy them?",
+    "severity": "minor",
+    "phase_range": ["primary", "final"],
+    "probability": 0.1,
+    "one_time": false,
+    "choices": [
+      { "id": "doors", "text": "Send them door-knocking in swing neighborhoods", "effects": [{"type": "poll_change", "value": 1, "description": "Ground game boost"}, {"type": "gotv_change", "value": 5000, "description": "GOTV infrastructure"}] },
+      { "id": "phones", "text": "Put them on phones for fundraising", "effects": [{"type": "cash_change", "value": 15000, "description": "Phone bank haul"}, {"type": "email_list_change", "value": 1500, "description": "Contact list grows"}] }
+    ]
+  },
+  {
+    "id": "camp-2",
+    "category": "campaign",
+    "title": "Internal Poll Results",
+    "description": "Your pollster delivers new internal numbers. The data shows an opportunity with Asian American voters if you invest there.",
+    "severity": "minor",
+    "phase_range": ["early", "mid"],
+    "probability": 0.12,
+    "one_time": true,
+    "prerequisites": [{"type": "has_staff", "value": "pollster"}],
+    "choices": [
+      { "id": "pivot", "text": "Pivot resources to Asian American outreach", "effects": [{"type": "demographic_change", "value": 2, "demographic": "asian-american", "description": "Targeted outreach pays off"}, {"type": "cash_change", "value": -8000, "description": "Outreach costs"}] },
+      { "id": "stay", "text": "Stay the course with current strategy", "effects": [{"type": "poll_change", "value": 0.3, "description": "Consistency maintained"}] }
+    ]
+  },
+  {
+    "id": "camp-3",
+    "category": "campaign",
+    "title": "Staff Conflict",
+    "description": "Your communications director and field director are feuding over strategy. Campaign morale is suffering.",
+    "severity": "moderate",
+    "phase_range": ["early", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "side-comms", "text": "Back the comms director's media-first approach", "effects": [{"type": "poll_change", "value": 0.5, "description": "Better messaging"}, {"type": "gotv_change", "value": -3000, "description": "Field team demoralized"}] },
+      { "id": "side-field", "text": "Back the field director's ground game focus", "effects": [{"type": "gotv_change", "value": 5000, "description": "Energized ground game"}, {"type": "momentum_change", "value": -0.5, "description": "Messaging suffers"}] },
+      { "id": "mediate", "text": "Mediate and demand they work together", "effects": [{"type": "momentum_change", "value": 0.5, "description": "Team unity"}, {"type": "poll_change", "value": 0.3, "description": "Steady progress"}] }
+    ]
+  },
+  {
+    "id": "camp-4",
+    "category": "campaign",
+    "title": "Major Donor Dinner",
+    "description": "A wealthy Las Vegas developer wants to host a fundraising dinner. Big money but could create optics problems.",
+    "severity": "moderate",
+    "phase_range": ["primary", "final"],
+    "probability": 0.12,
+    "one_time": false,
+    "choices": [
+      { "id": "accept", "text": "Accept and use the funds for TV ads", "effects": [{"type": "cash_change", "value": 40000, "description": "Donor dinner haul"}, {"type": "demographic_change", "value": -1, "demographic": "hospitality-workers", "description": "Cozy with developers"}] },
+      { "id": "decline", "text": "Politely decline and focus on small donors", "effects": [{"type": "cash_change", "value": 5000, "description": "Small donor surge from story"}, {"type": "demographic_change", "value": 1, "demographic": "hospitality-workers", "description": "Not in developers' pocket"}, {"type": "email_list_change", "value": 1000, "description": "Grassroots appeal"}] }
+    ]
+  },
+  {
+    "id": "camp-5",
+    "category": "campaign",
+    "title": "Campaign Bus Breaks Down",
+    "description": "The campaign bus breaks down in rural Nye County. Not ideal, but it could be a humanizing moment.",
+    "severity": "minor",
+    "phase_range": ["primary", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "photo-op", "text": "Turn it into a photo-op with locals", "effects": [{"type": "demographic_change", "value": 2, "demographic": "rural-conservative", "description": "Relatable moment"}, {"type": "poll_change", "value": 0.5, "description": "Viral social media moment"}, {"type": "email_list_change", "value": 500, "description": "Social media followers"}] },
+      { "id": "move-on", "text": "Get a rental and stick to the schedule", "effects": [{"type": "cash_change", "value": -2000, "description": "Emergency rental"}, {"type": "poll_change", "value": 0, "description": "Nothing notable"}] }
+    ]
+  },
+  {
+    "id": "camp-6",
+    "category": "campaign",
+    "title": "Opposition Research Gold",
+    "description": "Your oppo team found that Lee missed 30% of committee votes last session. This could be devastating.",
+    "severity": "major",
+    "phase_range": ["mid", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "prerequisites": [{"type": "momentum_above", "value": -2}],
+    "choices": [
+      { "id": "attack-ad", "text": "Launch a devastating attack ad campaign", "effects": [{"type": "opponent_change", "value": -2, "description": "Lee's approval drops"}, {"type": "poll_change", "value": 1.5, "description": "Effective attack"}, {"type": "momentum_change", "value": 1, "description": "On offense"}, {"type": "cash_change", "value": -25000, "description": "Ad production costs"}] },
+      { "id": "debate-ammo", "text": "Save it for the next debate", "effects": [{"type": "momentum_change", "value": 0.5, "description": "Saved ammunition"}, {"type": "poll_change", "value": 0.5, "description": "Voters notice missed votes"}] },
+      { "id": "leak", "text": "Leak it to the Review-Journal", "effects": [{"type": "opponent_change", "value": -1.5, "description": "Bad press for Lee"}, {"type": "poll_change", "value": 1, "description": "Media coverage"}, {"type": "cash_change", "value": 0, "description": "Free media"}] }
+    ]
+  },
+  {
+    "id": "camp-7",
+    "category": "campaign",
+    "title": "Celebrity Soccer Match Fundraiser",
+    "description": "Steve's agent arranges a celebrity charity soccer match. Great for fundraising and name ID.",
+    "severity": "minor",
+    "phase_range": ["primary", "early"],
+    "probability": 0.15,
+    "one_time": true,
+    "choices": [
+      { "id": "big-event", "text": "Go big — rent a stadium, sell tickets", "effects": [{"type": "cash_change", "value": 35000, "description": "Ticket sales and donations"}, {"type": "poll_change", "value": 1, "description": "Massive visibility"}, {"type": "cash_change", "value": -15000, "description": "Event costs"}, {"type": "email_list_change", "value": 3000, "description": "Attendee signups"}] },
+      { "id": "small", "text": "Keep it intimate — VIP donors only", "effects": [{"type": "cash_change", "value": 25000, "description": "Exclusive donor access"}, {"type": "poll_change", "value": 0.3, "description": "Limited visibility"}] }
+    ]
+  },
+  {
+    "id": "camp-8",
+    "category": "campaign",
+    "title": "Digital Ad Goes Viral",
+    "description": "Your team's latest digital ad is outperforming expectations. Should you double down?",
+    "severity": "minor",
+    "phase_range": ["early", "final"],
+    "probability": 0.1,
+    "one_time": false,
+    "choices": [
+      { "id": "boost", "text": "Pour money into boosting it further", "effects": [{"type": "poll_change", "value": 1.5, "description": "Viral amplification"}, {"type": "cash_change", "value": -20000, "description": "Boosting costs"}, {"type": "email_list_change", "value": 2000, "description": "New followers"}] },
+      { "id": "organic", "text": "Let it spread organically and save money", "effects": [{"type": "poll_change", "value": 0.8, "description": "Organic reach"}, {"type": "email_list_change", "value": 500, "description": "Some growth"}] }
+    ]
+  },
+  {
+    "id": "camp-9",
+    "category": "campaign",
+    "title": "Steve's Family on Camera",
+    "description": "A TV station wants to do a family profile. Humanizing but invasive.",
+    "severity": "minor",
+    "phase_range": ["primary", "mid"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "agree", "text": "Agree to the family feature", "effects": [{"type": "poll_change", "value": 1.5, "description": "Humanizing profile"}, {"type": "demographic_change", "value": 2, "demographic": "suburban-families", "description": "Family values"}] },
+      { "id": "decline", "text": "Keep family private, offer a policy interview instead", "effects": [{"type": "poll_change", "value": 0.3, "description": "Policy interview"}, {"type": "momentum_change", "value": 0, "description": "Missed opportunity"}] }
+    ]
+  },
+  {
+    "id": "camp-10",
+    "category": "campaign",
+    "title": "Surprise PAC Support",
+    "description": "A Republican-aligned Super PAC wants to run ads supporting Steve. The money is welcome but you can't coordinate.",
+    "severity": "moderate",
+    "phase_range": ["mid", "final"],
+    "probability": 0.1,
+    "one_time": true,
+    "choices": [
+      { "id": "welcome", "text": "Publicly welcome the support", "effects": [{"type": "poll_change", "value": 1, "description": "Ad air cover"}, {"type": "cash_change", "value": 0, "description": "Independent expenditure"}, {"type": "demographic_change", "value": -1, "demographic": "suburban-families", "description": "Dark money concerns"}] },
+      { "id": "distance", "text": "Distance yourself from PAC spending", "effects": [{"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Independence valued"}, {"type": "poll_change", "value": 0.5, "description": "Clean campaign image"}] }
+    ]
+  },
+  {
+    "id": "camp-11",
+    "category": "campaign",
+    "title": "Campaign Finance Deadline",
+    "description": "Quarterly FEC filing deadline approaching. A strong report will generate earned media.",
+    "severity": "minor",
+    "phase_range": ["primary", "final"],
+    "probability": 0.15,
+    "one_time": false,
+    "choices": [
+      { "id": "blitz", "text": "Launch an emergency fundraising blitz", "effects": [{"type": "cash_change", "value": 20000, "description": "End-of-quarter push"}, {"type": "momentum_change", "value": 0.5, "description": "Strong report"}] },
+      { "id": "normal", "text": "File normally and focus on other priorities", "effects": [{"type": "poll_change", "value": 0.3, "description": "Time saved for campaigning"}] }
+    ]
+  },
+  {
+    "id": "camp-12",
+    "category": "campaign",
+    "title": "Gaffe on Local Radio",
+    "description": "During a radio interview, Steve misstates a fact about NV-03 water policy. Lee's team is already clipping it.",
+    "severity": "moderate",
+    "phase_range": ["primary", "final"],
+    "probability": 0.08,
+    "one_time": true,
+    "choices": [
+      { "id": "correct", "text": "Quickly issue a correction with the right facts", "effects": [{"type": "poll_change", "value": -0.5, "description": "Quick correction limits damage"}, {"type": "momentum_change", "value": -0.5, "description": "Minor stumble"}] },
+      { "id": "humor", "text": "Make a self-deprecating joke and move on", "effects": [{"type": "poll_change", "value": 0, "description": "Humanizing moment"}, {"type": "demographic_change", "value": 1, "demographic": "suburban-families", "description": "Authentic personality"}, {"type": "momentum_change", "value": -0.3, "description": "Brushed off"}] },
+      { "id": "double-down", "text": "Double down and defend the statement", "effects": [{"type": "poll_change", "value": -1.5, "description": "Makes it worse"}, {"type": "momentum_change", "value": -1, "description": "Bad news cycle"}] }
+    ]
+  }
+]
