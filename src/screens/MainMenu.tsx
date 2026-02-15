@@ -29,8 +29,19 @@ export function MainMenu() {
         </Button>
       </div>
 
-      <div className="mt-16 text-center">
-        <p className="text-xs text-text-muted">NV-03 • Steve Gonzalez vs. Susie Lee</p>
+      <div className="mt-12 text-center">
+        <div className="flex justify-center items-center gap-4 mb-2">
+          <div className="text-center">
+            <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-14 h-14 rounded-full object-cover border-2 border-red-campaign mx-auto" />
+            <p className="text-xs text-red-campaign mt-1 font-medium">Gonzalez (R)</p>
+          </div>
+          <span className="text-text-muted font-bold text-lg">vs</span>
+          <div className="text-center">
+            <img src="/images/susie-profile.jpg" alt="Susie Lee" className="w-14 h-14 rounded-full object-cover border-2 border-blue-campaign mx-auto" />
+            <p className="text-xs text-blue-campaign mt-1 font-medium">Lee (D)</p>
+          </div>
+        </div>
+        <p className="text-xs text-text-muted">Nevada's 3rd Congressional District</p>
       </div>
     </div>
   );

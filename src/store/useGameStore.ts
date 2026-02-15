@@ -112,8 +112,12 @@ export const useGameStore = create<GameStore>()(
           );
 
           // 3. Generate events for next turn
+          // Include both archived history AND current active events in the history check
           const eventRng = new SeededRandom(state.seed + (state.current_turn + 1) * 3000);
-          const historyIds = state.event_history.map((e) => e.event.id);
+          const historyIds = [
+            ...state.event_history.map((e) => e.event.id),
+            ...state.active_events.map((e) => e.event.id),
+          ];
           const newEvents = generateTurnEvents(newGameState, historyIds, eventRng);
 
           set((s) => {

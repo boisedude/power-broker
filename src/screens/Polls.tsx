@@ -17,15 +17,21 @@ export function Polls() {
         <h3 className="text-sm font-bold text-text-primary mb-3">Overall Standing</h3>
         <div className="space-y-3">
           <div>
-            <div className="flex justify-between text-sm mb-1">
-              <span className="text-red-campaign font-medium">Steve Gonzalez (R)</span>
+            <div className="flex justify-between items-center text-sm mb-1">
+              <div className="flex items-center gap-2">
+                <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-6 h-6 rounded-full object-cover" />
+                <span className="text-red-campaign font-medium">Steve Gonzalez (R)</span>
+              </div>
               <span className="font-bold">{formatPercent(polls.player_support)}</span>
             </div>
             <ProgressBar value={polls.player_support} color="red" />
           </div>
           <div>
-            <div className="flex justify-between text-sm mb-1">
-              <span className="text-blue-campaign font-medium">Susie Lee (D)</span>
+            <div className="flex justify-between items-center text-sm mb-1">
+              <div className="flex items-center gap-2">
+                <img src="/images/susie-profile.jpg" alt="Susie Lee" className="w-6 h-6 rounded-full object-cover" />
+                <span className="text-blue-campaign font-medium">Susie Lee (D)</span>
+              </div>
               <span className="font-bold">{formatPercent(polls.opponent_support)}</span>
             </div>
             <ProgressBar value={polls.opponent_support} color="blue" />

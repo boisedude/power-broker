@@ -57,7 +57,16 @@ Political campaign simulation game. Player manages Steve Gonzalez's Republican c
 ### Building & Deploying
 - `npm run dev` — development server
 - `npm run build` — production build (TypeScript check + Vite)
-- Deploy: upload `dist/` contents to Hostinger via FTP
 - SPA routing handled by `public/.htaccess` (copied to dist on build)
+
+#### Hostinger FTP Deployment
 - FTP host: `ftp://191.101.13.61`
 - FTP user: `u951885034.powerbrokergame.com`
+- **Important:** FTP login lands directly in `public_html/` — this IS the web root
+- Upload `dist/` contents to the FTP root (which is `public_html/`), NOT to a `public_html/` subdirectory
+- Do NOT use `--delete` flag with `mirror` — it can remove server-managed directories
+- Deploy command:
+  ```
+  lftp -u 'u951885034.powerbrokergame.com,1kzEu54TaZxM@TP]' ftp://191.101.13.61 \
+    -e "set ssl:verify-certificate no; mirror -R --verbose dist/ ./; quit"
+  ```

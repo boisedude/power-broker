@@ -32,10 +32,16 @@ export function DebateScreen() {
         <Mic size={32} className="mx-auto text-red-campaign mb-2" />
         <h1 className="text-xl font-black text-text-primary">DEBATE NIGHT</h1>
         <p className="text-sm text-text-secondary mt-1">NV-03 Congressional Debate</p>
-        <div className="flex justify-center gap-4 mt-3">
-          <Badge variant="danger">Steve Gonzalez (R)</Badge>
-          <span className="text-text-muted">vs</span>
-          <Badge variant="info">Susie Lee (D)</Badge>
+        <div className="flex justify-center items-center gap-4 mt-3">
+          <div className="flex items-center gap-2">
+            <img src="/images/steve-profile.jpg" alt="Steve Gonzalez" className="w-10 h-10 rounded-full object-cover border-2 border-red-campaign" />
+            <Badge variant="danger">Steve Gonzalez (R)</Badge>
+          </div>
+          <span className="text-text-muted font-bold">vs</span>
+          <div className="flex items-center gap-2">
+            <Badge variant="info">Susie Lee (D)</Badge>
+            <img src="/images/susie-profile.jpg" alt="Susie Lee" className="w-10 h-10 rounded-full object-cover border-2 border-blue-campaign" />
+          </div>
         </div>
       </div>
 

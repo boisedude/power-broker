@@ -2,7 +2,7 @@ import type { OpponentState } from '@/types/game.ts';
 import { Card } from '@/components/ui/Card.tsx';
 import { Badge } from '@/components/ui/Badge.tsx';
 import { formatMoney } from '@/utils/formatters.ts';
-import { User, DollarSign, Shield, Swords } from 'lucide-react';
+import { DollarSign, Shield, Swords } from 'lucide-react';
 
 interface OpponentBriefingProps {
   opponent: OpponentState;
@@ -12,9 +12,11 @@ interface OpponentBriefingProps {
 export function OpponentBriefing({ opponent, actions = [] }: OpponentBriefingProps) {
   return (
     <Card accent="blue">
-      <div className="flex items-center gap-2 mb-3">
-        <User size={18} className="text-blue-campaign" />
-        <h3 className="text-sm font-bold text-blue-campaign">Intelligence: {opponent.name}</h3>
+      <div className="flex items-center gap-3 mb-3">
+        <img src="/images/susie-profile.jpg" alt={opponent.name} className="w-10 h-10 rounded-full object-cover border-2 border-blue-campaign" />
+        <div className="flex-1">
+          <h3 className="text-sm font-bold text-blue-campaign">Intelligence: {opponent.name}</h3>
+        </div>
         {opponent.attack_mode && <Badge variant="danger">Attacking</Badge>}
       </div>
 
