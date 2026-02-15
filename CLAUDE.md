@@ -3,11 +3,15 @@
 ## Project Overview
 Political campaign simulation game. Player manages Steve Gonzalez's Republican campaign against incumbent Susie Lee in NV-03.
 
+**Live:** https://powerbrokergame.com
+**Repo:** https://github.com/boisedude/power-broker
+
 ## Tech Stack
 - React 19 + TypeScript (strict) + Vite 6
 - Zustand (state) + Immer + IndexedDB persist
 - Tailwind CSS 4, Lucide React icons, Recharts
-- Vitest + React Testing Library
+- Vitest + Playwright (e2e)
+- Hosted on Hostinger (static site, FTP deploy)
 
 ## Key Conventions
 
@@ -17,6 +21,7 @@ Political campaign simulation game. Player manages Steve Gonzalez's Republican c
 - Components use named exports, one component per file
 - Use Tailwind classes only — no CSS modules or styled-components
 - All game state flows through the Zustand store
+- Candidate name is **Gonzalez** (with a z)
 
 ### File Organization
 - `src/types/` — TypeScript interfaces only, no logic
@@ -25,7 +30,8 @@ Political campaign simulation game. Player manages Steve Gonzalez's Republican c
 - `src/components/` — Reusable UI components
 - `src/screens/` — Full-page views (route targets)
 - `src/data/` — Static JSON game data
-- `tests/` — Mirrors src structure
+- `tests/` — Vitest unit tests (mirrors src structure)
+- `e2e/` — Playwright end-to-end tests
 
 ### Mobile-First Design
 - Design for 375px width minimum
@@ -40,14 +46,18 @@ Political campaign simulation game. Player manages Steve Gonzalez's Republican c
 - All game math in engine files, using BalanceConstants
 - SeededRandom for reproducible randomness
 - State persists to IndexedDB via Zustand middleware
+- Event effects applied in eventSlice.ts (inside immer draft)
+- Endorsement effects applied in GameEngine.ts on securing
 
 ### Testing
-- Test engine logic thoroughly (pure functions)
-- Test store slices for state transitions
-- Component tests for critical user flows
-- Run: `npm test`
+- Unit tests: `npm test` (Vitest, 22 tests)
+- E2E tests: `npx playwright test e2e/game-flow.spec.ts` (local, 7 tests)
+- Production tests: `npx playwright test e2e/production.spec.ts` (live site, 6 tests)
 
-### Building
+### Building & Deploying
 - `npm run dev` — development server
-- `npm run build` — production build (must pass TypeScript check)
-- `npm test` — run all tests
+- `npm run build` — production build (TypeScript check + Vite)
+- Deploy: upload `dist/` contents to Hostinger via FTP
+- SPA routing handled by `public/.htaccess` (copied to dist on build)
+- FTP host: `ftp://191.101.13.61`
+- FTP user: `u951885034.powerbrokergame.com`
