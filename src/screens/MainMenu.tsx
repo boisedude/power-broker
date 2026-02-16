@@ -8,50 +8,64 @@ export function MainMenu() {
 
   return (
     <div className="min-h-screen bg-bg-primary relative overflow-hidden">
-      {/* Hero background */}
+      {/* Hero background — subtle rally image */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-15"
+        className="absolute inset-0 bg-cover bg-center opacity-10"
         style={{ backgroundImage: 'url(/images/steve-rally.jpg)' }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/60 via-bg-primary/80 to-bg-primary" />
+      <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/50 via-bg-primary/70 to-bg-primary" />
 
       {/* Content */}
-      <div className="relative flex flex-col items-center justify-center min-h-screen px-6">
-        <div className="text-center mb-8">
-          <h1 className="text-6xl font-black text-text-primary tracking-tighter mb-2">
-            POWER<span className="text-red-campaign">BROKER</span>
-          </h1>
-          <p className="text-text-secondary text-sm">A Political Campaign Simulation</p>
-        </div>
+      <div className="relative flex flex-col items-center min-h-screen px-6 pt-10 pb-8">
+        {/* Logo */}
+        <img
+          src="/images/logo-pb.png"
+          alt="Campaign Manager: Nevada 3rd District"
+          className="w-32 h-32 mb-4 drop-shadow-lg"
+        />
+        <h1 className="text-5xl font-black text-text-primary tracking-tighter mb-1">
+          POWER<span className="text-red-campaign">BROKER</span>
+        </h1>
 
-        {/* Narrative flavor card */}
-        <div className="w-full max-w-sm bg-bg-elevated/80 backdrop-blur-sm rounded-xl border border-border-primary p-4 mb-8">
-          <p className="text-text-secondary text-sm leading-relaxed">
-            <span className="text-text-primary font-semibold">June 2026.</span>{' '}
-            Steve Gonzalez — former pro soccer player, real estate developer, first-time candidate —
-            is challenging four-term incumbent Susie Lee for Nevada's 3rd Congressional District.
-          </p>
-          <p className="text-text-muted text-xs mt-2">NV-03 | Cook PVI: D+1</p>
-        </div>
-
-        {/* Candidate portraits */}
-        <div className="flex justify-center items-center gap-6 mb-8">
-          <div className="text-center">
+        {/* Steve hero portrait */}
+        <div className="relative mb-5">
+          <div className="w-44 h-44 rounded-full overflow-hidden border-4 border-red-campaign shadow-2xl shadow-red-campaign/30">
             <img
               src="/images/steve-profile.jpg"
               alt="Steve Gonzalez"
-              className="w-20 h-20 rounded-full object-cover object-[center_25%] border-2 border-red-campaign mx-auto shadow-lg shadow-red-campaign/20"
+              className="w-full h-full object-cover object-[center_25%]"
             />
-            <p className="text-xs text-red-campaign mt-2 font-medium">Gonzalez (R)</p>
           </div>
-          <span className="text-text-muted font-bold text-xl">vs</span>
-          <div className="text-center">
+          {/* Subtle glow effect */}
+          <div className="absolute inset-0 rounded-full bg-red-campaign/10 blur-2xl -z-10 scale-125" />
+        </div>
+
+        {/* Hook text */}
+        <h2 className="text-2xl font-bold text-text-primary text-center leading-tight mb-2">
+          Can you send Steve<br />to Congress?
+        </h2>
+
+        {/* Pitch */}
+        <p className="text-text-secondary text-sm text-center leading-relaxed max-w-xs mb-6">
+          He's a former pro soccer player, a real estate developer,
+          and a father of three. He's never run for office.
+          Do you have what it takes to turn him into a <span className="text-text-primary font-semibold">Congressman</span>?
+        </p>
+
+        {/* Congress aspiration image */}
+        <div className="w-full max-w-xs rounded-xl overflow-hidden border border-border-primary shadow-lg mb-6">
+          <div className="relative">
             <img
-              src="/images/susie-profile.jpg"
-              alt="Susie Lee"
-              className="w-20 h-20 rounded-full object-cover border-2 border-blue-campaign mx-auto shadow-lg shadow-blue-campaign/20"
+              src="/images/steve-congress.jpg"
+              alt="Steve Gonzalez on the House floor"
+              className="w-full h-36 object-cover object-[center_30%]"
             />
-            <p className="text-xs text-blue-campaign mt-2 font-medium">Lee (D)</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 px-3 pb-2">
+              <p className="text-xs text-text-secondary italic">
+                The goal: unseat a four-term incumbent in Nevada's 3rd District.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -70,7 +84,7 @@ export function MainMenu() {
           </Button>
         </div>
 
-        <p className="text-xs text-text-muted mt-8">Nevada's 3rd Congressional District</p>
+        <p className="text-xs text-text-muted mt-6">NV-03 | Cook PVI: D+1</p>
       </div>
     </div>
   );
