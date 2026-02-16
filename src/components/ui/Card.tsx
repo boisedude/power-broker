@@ -19,7 +19,7 @@ export function Card({ children, className = '', onClick, accent = 'none' }: Car
   return (
     <div
       className={`
-        bg-bg-card rounded-xl p-4
+        bg-bg-card rounded-xl p-4 border border-navy-700/50
         ${accentClasses[accent]}
         ${onClick ? 'cursor-pointer active:bg-bg-elevated transition-colors' : ''}
         ${className}

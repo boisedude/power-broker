@@ -1,12 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import { useGameStore } from '@/store/useGameStore.ts';
 import { PageContainer } from '@/components/layout/PageContainer.tsx';
 import { EventCard } from '@/components/game/EventCard.tsx';
+import { Button } from '@/components/ui/Button.tsx';
 
 export function EventScreen() {
+  const navigate = useNavigate();
   const activeEvents = useGameStore((s) => s.active_events);
   const currentIndex = useGameStore((s) => s.current_event_index);
   const resolveEvent = useGameStore((s) => s.resolveEvent);
-  const setTurnPhase = useGameStore((s) => s.setTurnPhase);
 
   const currentEvent = activeEvents[currentIndex];
   const allResolved = activeEvents.every((e) => e.resolved);
@@ -16,12 +18,9 @@ export function EventScreen() {
       <PageContainer title="Events">
         <div className="text-center py-12">
           <p className="text-text-secondary mb-4">No pending events this turn.</p>
-          <button
-            onClick={() => setTurnPhase('actions')}
-            className="px-6 py-3 bg-red-campaign text-white rounded-lg font-semibold min-h-[48px]"
-          >
-            Continue to Actions
-          </button>
+          <Button size="lg" onClick={() => navigate('/game')}>
+            Back to Dashboard
+          </Button>
         </div>
       </PageContainer>
     );

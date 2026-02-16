@@ -58,7 +58,7 @@ export function AdCard({ medium, active, currentTone, onToggle, onSetTone }: AdC
             <button
               key={tone}
               onClick={() => onSetTone(tone)}
-              className={`px-2 py-1 text-xs rounded-md transition-colors ${
+              className={`px-3 py-2 text-xs rounded-md transition-colors min-h-[36px] ${
                 currentTone === tone ? 'bg-red-campaign text-white' : 'bg-bg-elevated text-text-secondary'
               }`}
             >

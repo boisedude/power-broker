@@ -19,31 +19,42 @@ export function Settings() {
           <div className="flex justify-between items-center">
             <span className="text-sm text-text-primary">Animations</span>
             <button
+              role="switch"
+              aria-checked={animationsEnabled}
+              aria-label="Animations"
               onClick={toggleAnimations}
-              className={`w-12 h-6 rounded-full transition-colors ${animationsEnabled ? 'bg-success' : 'bg-bg-elevated'}`}
+              className={`w-12 h-7 rounded-full transition-colors ${animationsEnabled ? 'bg-success' : 'bg-bg-elevated'}`}
             >
-              <div className={`w-5 h-5 bg-white rounded-full transition-transform ${animationsEnabled ? 'translate-x-6' : 'translate-x-0.5'}`} />
+              <div className={`w-5 h-5 bg-white rounded-full transition-transform mt-0.5 ${animationsEnabled ? 'translate-x-6' : 'translate-x-1'}`} />
             </button>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-sm text-text-primary">Auto-Save</span>
             <button
+              role="switch"
+              aria-checked={autoSave}
+              aria-label="Auto-Save"
               onClick={toggleAutoSave}
-              className={`w-12 h-6 rounded-full transition-colors ${autoSave ? 'bg-success' : 'bg-bg-elevated'}`}
+              className={`w-12 h-7 rounded-full transition-colors ${autoSave ? 'bg-success' : 'bg-bg-elevated'}`}
             >
-              <div className={`w-5 h-5 bg-white rounded-full transition-transform ${autoSave ? 'translate-x-6' : 'translate-x-0.5'}`} />
+              <div className={`w-5 h-5 bg-white rounded-full transition-transform mt-0.5 ${autoSave ? 'translate-x-6' : 'translate-x-1'}`} />
             </button>
           </div>
         </div>
       </Card>
 
       <Card className="mb-4">
-        <Button variant="danger" fullWidth onClick={() => { resetGame(); navigate('/'); }}>
+        <Button variant="danger" fullWidth onClick={() => {
+          if (window.confirm('Are you sure? This will permanently delete your current campaign.')) {
+            resetGame();
+            navigate('/');
+          }
+        }}>
           Reset Campaign
         </Button>
       </Card>
 
-      <Button variant="ghost" fullWidth onClick={() => window.history.back()}>
+      <Button variant="ghost" fullWidth onClick={() => navigate(-1)}>
         Back
       </Button>
     </PageContainer>

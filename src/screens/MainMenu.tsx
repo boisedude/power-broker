@@ -34,6 +34,7 @@ export function MainMenu() {
               src="/images/steve-profile.jpg"
               alt="Steve Gonzalez"
               className="w-full h-full object-cover object-[center_25%]"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
           </div>
           {/* Subtle glow effect */}
@@ -84,7 +85,7 @@ export function MainMenu() {
           </Button>
         </div>
 
-        <p className="text-xs text-text-muted mt-6">NV-03 | Cook PVI: D+1</p>
+        <p className="text-xs text-text-muted mt-6">Nevada's 3rd Congressional District — Leans slightly Democratic</p>
       </div>
     </div>
   );

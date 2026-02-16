@@ -19,7 +19,11 @@ const NewGame = lazy(() => import('@/screens/NewGame.tsx').then(m => ({ default:
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={
+        <div className="min-h-screen bg-bg-primary flex items-center justify-center">
+          <Spinner />
+        </div>
+      }>
         <Routes>
           <Route path="/" element={<MainMenu />} />
           <Route path="/new-game" element={<NewGame />} />

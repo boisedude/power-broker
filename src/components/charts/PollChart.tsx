@@ -18,7 +18,7 @@ export function PollChart({ history }: PollChartProps) {
       <LineChart data={data}>
         <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
         <XAxis dataKey="turn" tick={{ fill: '#94a3b8', fontSize: 10 }} />
-        <YAxis domain={[30, 60]} tick={{ fill: '#94a3b8', fontSize: 10 }} />
+        <YAxis domain={['auto', 'auto']} tick={{ fill: '#94a3b8', fontSize: 10 }} padding={{ top: 5, bottom: 5 }} />
         <Tooltip
           contentStyle={{ background: '#1e293b', border: '1px solid #334155', borderRadius: '8px', color: '#f1f5f9' }}
         />

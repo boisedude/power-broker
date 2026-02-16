@@ -64,6 +64,9 @@ export function DebateScreen() {
           </Button>
         ))}
       </div>
+      <p className="text-xs text-text-muted text-center mt-4">
+        Your debate performance will affect polls and campaign momentum.
+      </p>
     </PageContainer>
   );
 }

@@ -48,7 +48,7 @@ export function Actions() {
               key={action.type}
               type={action.type}
               name={action.name}
-              description={gotvLocked ? `Available from Week 21` : action.description}
+              description={gotvLocked ? `Unlocks Week 21 — invest in ground game for Election Day` : action.description}
               cost={1}
               disabled={!isActionPhase || ap < 1 || gotvLocked}
               count={count}
@@ -58,9 +58,9 @@ export function Actions() {
         })}
       </div>
 
-      {isActionPhase && ap === 0 && (
-        <Button fullWidth size="lg" onClick={endTurn}>
-          End Turn →
+      {isActionPhase && (
+        <Button fullWidth size="lg" variant={ap === 0 ? 'primary' : 'secondary'} onClick={endTurn}>
+          {ap === 0 ? 'End Turn →' : `End Turn (${ap} AP unused) →`}
         </Button>
       )}
       {turnPhase === 'briefing' && (

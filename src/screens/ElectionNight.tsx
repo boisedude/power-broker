@@ -79,13 +79,14 @@ export function ElectionNight() {
     }, 100);
 
     return () => clearInterval(interval);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [seed]);
 
   const playerWon = result?.winner === 'player';
 
   return (
     <div className="min-h-screen bg-bg-primary">
-      <PageContainer>
+      <PageContainer className="!pb-8">
         {/* Header */}
         <div className="text-center mb-6 pt-4">
           <Flag size={32} className="mx-auto text-red-campaign mb-2" />

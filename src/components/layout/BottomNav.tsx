@@ -14,11 +14,12 @@ export function BottomNav() {
   const navigate = useNavigate();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-bg-primary/95 backdrop-blur-sm border-t border-navy-700">
+    <nav className="fixed bottom-0 left-0 right-0 z-40 bg-bg-primary/95 backdrop-blur-sm border-t border-navy-700 pb-[env(safe-area-inset-bottom)]">
       <div className="flex justify-around items-center max-w-lg mx-auto h-16">
         {tabs.map((tab) => {
-          const isActive = location.pathname === tab.path || 
-            (tab.path === '/game' && location.pathname === '/game/');
+          const isActive = tab.path === '/game'
+            ? ['/game', '/game/', '/game/events', '/game/debate'].includes(location.pathname)
+            : location.pathname === tab.path;
           const Icon = tab.icon;
           return (
             <button

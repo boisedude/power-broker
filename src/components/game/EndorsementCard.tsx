@@ -26,6 +26,9 @@ export function EndorsementCard({ endorsement, canPursue, onPursue }: Endorsemen
             {endorsement.pursued && !endorsement.secured && <Badge variant="warning">Pursuing</Badge>}
           </div>
           <p className="text-xs text-text-secondary mt-0.5">{endorsement.description}</p>
+          {!endorsement.secured && !endorsement.pursued && endorsement.turns_to_secure > 0 && (
+            <p className="text-xs text-text-muted mt-1">Takes {endorsement.turns_to_secure} weeks to secure</p>
+          )}
           {endorsement.fundraising_bonus > 0 && (
             <p className="text-xs text-success mt-1">+{formatMoney(endorsement.fundraising_bonus)} fundraising</p>
           )}

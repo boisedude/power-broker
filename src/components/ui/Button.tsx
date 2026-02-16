@@ -30,7 +30,7 @@ export function Button({ variant = 'primary', size = 'md', fullWidth = false, ch
         ${variantClasses[variant]}
         ${sizeClasses[size]}
         ${fullWidth ? 'w-full' : ''}
-        rounded-lg font-semibold transition-colors duration-150
+        rounded-lg font-semibold transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-campaign
         min-h-[48px] min-w-[48px]
         disabled:opacity-40 disabled:cursor-not-allowed
         ${className}

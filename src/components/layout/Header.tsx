@@ -26,7 +26,7 @@ export function Header() {
           <span className={`text-lg font-black ${marginColor}`}>
             {playerSupport.toFixed(1)}–{opponentSupport.toFixed(1)}
           </span>
-          <span className={`text-xs font-medium ${marginColor}`}>{marginText}</span>
+          <span className={`text-xs font-medium ${marginColor}`}>{marginText}%</span>
         </div>
         <div className="flex flex-col items-end gap-0.5">
           <span className="text-sm font-bold text-success">{formatMoney(cash)}</span>

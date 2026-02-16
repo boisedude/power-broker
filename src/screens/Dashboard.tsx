@@ -84,8 +84,8 @@ export function Dashboard() {
               <StatChange value={lastResult.poll_changes.reduce((s, c) => s + c.player_change, 0) / Math.max(lastResult.poll_changes.length, 1)} suffix="%" />
             </div>
           )}
-          <Button size="sm" variant="secondary" className="mt-3" onClick={() => setTurnPhase('actions')}>
-            Begin Turn
+          <Button size="md" variant="primary" fullWidth className="mt-3" onClick={() => setTurnPhase('actions')}>
+            Begin Turn →
           </Button>
         </Card>
       )}
@@ -94,7 +94,7 @@ export function Dashboard() {
       <Card className="mb-3">
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-sm font-bold text-text-primary">Polls</h3>
-          <button onClick={() => navigate('/game/polls')} className="text-xs text-info">Details →</button>
+          <button onClick={() => navigate('/game/polls')} className="text-xs text-info px-2 py-1 -mr-2 min-h-[44px] flex items-center">Details →</button>
         </div>
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
@@ -126,7 +126,7 @@ export function Dashboard() {
       {/* Opponent Brief */}
       <Card accent="blue" className="mb-3">
         <h3 className="text-sm font-bold text-blue-campaign mb-1">Opponent: {opponent.name}</h3>
-        <div className="grid grid-cols-2 gap-2 text-xs text-text-secondary">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-text-secondary">
           <span>Strategy: <span className="text-text-primary capitalize">{opponent.strategy}</span></span>
           <span>Endorsements: <span className="text-text-primary">{opponent.endorsements_secured.length}</span></span>
           <span>Attack Mode: <span className={opponent.attack_mode ? 'text-danger' : 'text-success'}>{opponent.attack_mode ? 'Yes' : 'No'}</span></span>

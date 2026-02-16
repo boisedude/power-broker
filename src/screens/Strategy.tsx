@@ -23,11 +23,18 @@ export function Strategy() {
   const pursueEndorsement = useGameStore((s) => s.pursueEndorsement);
   const setAds = useGameStore((s) => s.setAds);
 
-  const [adConfig, setAdConfig] = useState<Record<AdMedium, { active: boolean; tone: AdTone }>>({
-    tv: { active: false, tone: 'positive-bio' },
-    digital: { active: false, tone: 'positive-bio' },
-    mailers: { active: false, tone: 'positive-bio' },
-    radio: { active: false, tone: 'positive-bio' },
+  const currentAds = useGameStore((s) => s.ads);
+  const [adConfig, setAdConfig] = useState<Record<AdMedium, { active: boolean; tone: AdTone }>>(() => {
+    const config: Record<AdMedium, { active: boolean; tone: AdTone }> = {
+      tv: { active: false, tone: 'positive-bio' },
+      digital: { active: false, tone: 'positive-bio' },
+      mailers: { active: false, tone: 'positive-bio' },
+      radio: { active: false, tone: 'positive-bio' },
+    };
+    for (const ad of currentAds) {
+      config[ad.medium] = { active: true, tone: ad.tone };
+    }
+    return config;
   });
 
   const toggleAd = (medium: AdMedium) => {
@@ -67,7 +74,7 @@ export function Strategy() {
           <button
             key={t.id}
             onClick={() => setTab(t.id)}
-            className={`flex-1 py-2 text-sm font-medium rounded-md transition-colors ${
+            className={`flex-1 py-2.5 text-sm font-medium rounded-md transition-colors min-h-[44px] ${
               tab === t.id ? 'bg-red-campaign text-white' : 'text-text-secondary'
             }`}
           >

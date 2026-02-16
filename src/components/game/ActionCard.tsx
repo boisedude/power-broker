@@ -27,7 +27,7 @@ export function ActionCard({ type, name, description, cost, disabled, count, onA
   const Icon = iconMap[type];
 
   return (
-    <Card className="flex items-center gap-3">
+    <Card className="flex items-center gap-3 transition-transform active:scale-[0.98]">
       <div className="w-10 h-10 rounded-lg bg-bg-elevated flex items-center justify-center shrink-0">
         <Icon size={20} className="text-red-campaign" />
       </div>
@@ -36,7 +36,7 @@ export function ActionCard({ type, name, description, cost, disabled, count, onA
           <span className="text-sm font-bold text-text-primary">{name}</span>
           {count > 0 && <Badge variant="success">{count}x</Badge>}
         </div>
-        <p className="text-xs text-text-secondary truncate">{description}</p>
+        <p className="text-xs text-text-secondary line-clamp-2">{description}</p>
       </div>
       <Button size="sm" variant={disabled ? 'ghost' : 'primary'} disabled={disabled} onClick={onAllocate}>
         {cost} AP

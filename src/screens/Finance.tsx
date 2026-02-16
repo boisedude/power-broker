@@ -43,6 +43,15 @@ export function Finance() {
         </Card>
       </div>
 
+      {/* Burn Rate Warning */}
+      {finances.weekly_burn_rate > finances.online_income_rate && (
+        <Card accent="red" className="mb-4">
+          <p className="text-xs text-danger font-medium">
+            Warning: Spending {formatMoney(finances.weekly_burn_rate)}/wk exceeds income of {formatMoney(finances.online_income_rate)}/wk
+          </p>
+        </Card>
+      )}
+
       {/* Revenue Sources */}
       <Card className="mb-4">
         <h3 className="text-sm font-bold text-text-primary mb-3">Revenue Sources</h3>

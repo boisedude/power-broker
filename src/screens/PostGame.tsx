@@ -57,11 +57,12 @@ export function PostGame() {
 
   return (
     <div className="min-h-screen bg-bg-primary">
-      <PageContainer>
+      <PageContainer className="!pb-8">
         <div className="text-center mb-6 pt-4">
           <Award size={40} className={score.victory ? 'text-gold-campaign mx-auto' : 'text-text-muted mx-auto'} />
           <h1 className="text-2xl font-black text-text-primary mt-2">CAMPAIGN REPORT</h1>
           <p className="text-sm text-text-secondary">Final Assessment</p>
+          <Badge variant="default" className="mt-1">{difficulty.replace(/-/g, ' ').toUpperCase()}</Badge>
         </div>
 
         {/* Grade */}

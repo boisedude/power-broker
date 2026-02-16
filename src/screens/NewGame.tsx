@@ -58,7 +58,7 @@ export function NewGame() {
               <button
                 key={key}
                 onClick={() => handleSelect(key)}
-                className="w-full text-left"
+                className="w-full text-left active:scale-[0.98] transition-transform"
               >
                 <Card accent={key === 'toss-up' ? 'gold' : undefined} className="space-y-2">
                   <div className="flex items-center gap-3">
@@ -84,11 +84,6 @@ export function NewGame() {
           })}
         </div>
 
-        <div className="mt-8 text-center">
-          <Button variant="ghost" onClick={() => navigate('/')}>
-            Cancel
-          </Button>
-        </div>
       </div>
     </div>
   );
