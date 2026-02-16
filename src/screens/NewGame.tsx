@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useGameStore } from '@/store/useGameStore.ts';
 import { DIFFICULTY_CONFIGS } from '@/engine/BalanceConstants.ts';
-import { Button } from '@/components/ui/Button.tsx';
 import { Card } from '@/components/ui/Card.tsx';
 import { ArrowLeft, DollarSign, TrendingUp, Shield, Swords, Skull } from 'lucide-react';
 import type { DifficultyLevel } from '@/types/game.ts';
