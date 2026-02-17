@@ -13,6 +13,14 @@ interface EndorsementCardProps {
 }
 
 export function EndorsementCard({ endorsement, canPursue, onPursue }: EndorsementCardProps) {
+  const details: string[] = [];
+  if (!endorsement.secured && !endorsement.pursued && endorsement.turns_to_secure > 0) {
+    details.push(`${endorsement.turns_to_secure} wks`);
+  }
+  if (endorsement.fundraising_bonus > 0) {
+    details.push(`+${formatMoney(endorsement.fundraising_bonus)}/wk`);
+  }
+
   return (
     <Card accent={endorsement.secured ? 'gold' : 'none'}>
       <div className="flex items-start gap-3">
@@ -25,12 +33,9 @@ export function EndorsementCard({ endorsement, canPursue, onPursue }: Endorsemen
             {endorsement.secured && <Badge variant="success">Secured</Badge>}
             {endorsement.pursued && !endorsement.secured && <Badge variant="warning">Pursuing</Badge>}
           </div>
-          <p className="text-xs text-text-secondary mt-0.5">{endorsement.description}</p>
-          {!endorsement.secured && !endorsement.pursued && endorsement.turns_to_secure > 0 && (
-            <p className="text-xs text-text-muted mt-1">Takes {endorsement.turns_to_secure} weeks to secure</p>
-          )}
-          {endorsement.fundraising_bonus > 0 && (
-            <p className="text-xs text-success mt-1">+{formatMoney(endorsement.fundraising_bonus)} fundraising</p>
+          <p className="text-xs text-text-secondary mt-0.5 line-clamp-1">{endorsement.description}</p>
+          {details.length > 0 && (
+            <p className="text-xs text-text-muted mt-0.5">{details.join(' • ')}</p>
           )}
           {endorsement.pursued && !endorsement.secured && (
             <ProgressBar
@@ -38,7 +43,7 @@ export function EndorsementCard({ endorsement, canPursue, onPursue }: Endorsemen
               max={endorsement.turns_to_secure}
               color="gold"
               height="sm"
-              className="mt-2"
+              className="mt-1"
             />
           )}
         </div>

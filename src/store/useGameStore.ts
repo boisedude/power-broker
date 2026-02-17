@@ -125,7 +125,7 @@ export const useGameStore = create<GameStore>()(
             s.current_turn = newGameState.current_turn;
             s.phase = newGameState.phase;
             s.actions_remaining = newGameState.action_points;
-            s.turn_phase = newEvents.length > 0 ? 'events' : 'briefing';
+            s.turn_phase = 'briefing';
             s.last_turn_result = {
               ...result,
               opponent_actions: opponentResult.actions,

@@ -32,13 +32,6 @@ export function Dashboard() {
   const gameOver = useGameStore((s) => s.game_over);
   const activeEvents = useGameStore((s) => s.active_events);
 
-  // Navigate to events screen when events phase starts
-  useEffect(() => {
-    if (turnPhase === 'events' && activeEvents.length > 0) {
-      navigate('/game/events');
-    }
-  }, [turnPhase, activeEvents.length, navigate]);
-
   // Navigate to election night when game ends
   useEffect(() => {
     if (gameOver) {
@@ -84,7 +77,15 @@ export function Dashboard() {
               <StatChange value={lastResult.poll_changes.reduce((s, c) => s + c.player_change, 0) / Math.max(lastResult.poll_changes.length, 1)} suffix="%" />
             </div>
           )}
-          <Button size="md" variant="primary" fullWidth className="mt-3" onClick={() => setTurnPhase('actions')}>
+          <Button size="md" variant="primary" fullWidth className="mt-3" onClick={() => {
+            const unresolvedEvents = activeEvents.filter((e) => !e.resolved);
+            if (unresolvedEvents.length > 0) {
+              setTurnPhase('events');
+              navigate('/game/events');
+            } else {
+              setTurnPhase('actions');
+            }
+          }}>
             Begin Turn →
           </Button>
         </Card>

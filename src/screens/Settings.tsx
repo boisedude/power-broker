@@ -57,6 +57,12 @@ export function Settings() {
       <Button variant="ghost" fullWidth onClick={() => navigate(-1)}>
         Back
       </Button>
+
+      <div className="mt-12 text-center space-y-1">
+        <p className="text-xs text-text-muted">Power Broker v1.0.0</p>
+        <p className="text-xs text-text-muted">A Political Campaign Simulation</p>
+        <p className="text-xs text-text-muted">powerbrokergame.com</p>
+      </div>
     </PageContainer>
   );
 }
